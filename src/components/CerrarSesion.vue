@@ -6,7 +6,10 @@
       <p>
         ¿Estás seguro que quieres cerrar sesión?:
       </p>
-      <form class="creacion_container-form" v-on:submit.prevent="procesarCerrarSesion">
+      <form
+        class="creacion_container-form"
+        v-on:submit.prevent="procesarCerrarSesion"
+      >
         <button type="submit">Sí, cerrar sesión</button>
         <button v-on:click="cancelar()">No, volver al inicio</button>
       </form>
@@ -16,20 +19,19 @@
 
 <script>
 export default {
-  name: 'CerrarSesion',
+  name: "CerrarSesion",
 
-    methods:{
-      procesarCerrarSesion: function(){
-        localStorage.setItem('isAuth', false);
-        localStorage.removeItem("usuario");
-        this.$emit('completedCerrarSesion')
-      },
+  methods: {
+    // procesarCerrarSesion: function(){
+    //   localStorage.setItem('isAuth', false);
+    //   localStorage.removeItem("usuario");
+    //   this.$emit('completedCerrarSesion')
+    // },
 
-      cancelar: function(){
-        
-        this.$router.push({ name: "Instrucciones" });
-      },
+    cancelar: function() {
+      this.$router.push({ name: "Instrucciones" });
     },
+  },
 };
 </script>
 

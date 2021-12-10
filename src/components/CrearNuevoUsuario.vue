@@ -7,22 +7,33 @@
         Para crear un nueva cuenta, por favor ingrese un nombre de usuario y
         contraseña:
       </p>
-      <form
-        class="creacion_container-form"
-        v-on:submit.prevent="procesarCrearNuevoUsuario"
-      >
+      <form class="creacion_container-form" v-on:submit.prevent="processSignUp">
         <input
           class="form_creacion-input"
           type="text"
-          v-model="nuevoUsuario.username"
-          placeholder="Nombre de Usuario"
+          placeholder="Usuario"
+          v-model="user.username"
+        />
+
+        <input
+          class="form_creacion-input"
+          type="text"
+          placeholder="Nombre"
+          v-model="user.name"
         />
 
         <input
           class="form_creacion-input"
           type="password"
-          v-model="nuevoUsuario.password"
           placeholder="Contraseña"
+          v-model="user.password"
+        />
+
+        <input
+          class="form_creacion-input"
+          type="email"
+          placeholder="Correo"
+          v-model="user.email"
         />
 
         <button type="submit">Crear nueva cuenta de usuario</button>
@@ -31,7 +42,57 @@
   </section>
 </template>
 
-<script></script>
+<script>
+import gql from "graphql-tag";
+export default {
+  name: "SignUp",
+  data: function() {
+    return {
+      user: {
+        username: "",
+        name: "",
+        password: "",
+        email: "",
+      },
+    };
+  },
+  methods: {
+    processSignUp: async function() {
+      await this.$apollo
+        .mutate({
+          mutation: gql`
+            mutation($userInput: SignUpInput!) {
+              signUpUser(userInput: $userInput) {
+                refresh
+                access
+              }
+            }
+          `,
+
+          variables: {
+            userInput: this.user,
+          },
+        })
+
+        .then((result) => {
+          let dataLogIn = {
+            username: this.user.username,
+
+            token_access: result.data.signUpUser.access,
+
+            token_refresh: result.data.signUpUser.refresh,
+          };
+
+          this.$emit("completedSignUp", dataLogIn);
+        })
+
+        .catch((error) => {
+          alert("ERROR: Fallo en el registro.");
+        });
+    },
+  },
+};
+</script>
 
 <style>
 .creacion {

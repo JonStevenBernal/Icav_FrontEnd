@@ -24,28 +24,28 @@
     <nav class="nav animate__animated animate__fadeInDown" v-show="showNav">
       <ul class="nav_section">
         <li class="" v-on:click="loadInicio">Inicio</li>
-        <li v-if="isAuth" class="" v-on:click="loadMostrar">
+        <li class="" v-on:click="loadMostrar">
           Mostrar Registros
         </li>
-        <li v-if="isAuth" class="" v-on:click="loadCrearRegistro">
+        <li class="" v-on:click="loadCrearRegistro">
           Crear Registro
         </li>
-        <li v-if="isAuth" class="" v-on:click="loadFiltrarSexo">
+        <li class="" v-on:click="loadFiltrarSexo">
           Filtrar Sexo
         </li>
-        <li v-if="isAuth" class="" v-on:click="loadFiltrarEstado">
+        <li class="" v-on:click="loadFiltrarEstado">
           Filtrar Estado
         </li>
-        <li v-if="!isAuth" class="" v-on:click="loadIniciarSesion">
+        <li class="" v-on:click="loadIniciarSesion">
           Iniciar Sesión
         </li>
-        <li v-if="isAuth" class="" v-on:click="loadCerrarSesion">
+        <li class="" v-on:click="loadCerrarSesion">
           Cerrar Sesión
         </li>
-        <li v-if="isAuth" class="" v-on:click="loadEliminarCuenta">
+        <li class="" v-on:click="loadEliminarCuenta">
           Eliminar cuenta
         </li>
-        <li v-if="!isAuth" class="" v-on:click="loadCrearNuevoUsuario">
+        <li class="" v-on:click="loadCrearNuevoUsuario">
           Crear nueva cuenta
         </li>
 
@@ -83,7 +83,7 @@ export default {
     //inicializar variables dentro de este componente
     return {
       showNav: false,
-      isAuth: false,
+      // isAuth: false,
     };
   },
 
@@ -149,42 +149,42 @@ export default {
       this.$router.push({ name: "CrearSeguimiento" });
     },
 
-    completedModificarSeguimiento: function() {
-      localStorage.removeItem("id");
-      alert("Modificación de seguimiento exitosa");
-      this.$router.push({ name: "Instrucciones" });
-    },
+    // completedModificarSeguimiento: function() {
+    //   localStorage.removeItem("id");
+    //   alert("Modificación de seguimiento exitosa");
+    //   this.$router.push({ name: "Instrucciones" });
+    // },
 
-    completedCrearSeguimiento: function() {
-      alert("Creación de seguimiento exitosa");
-      this.$router.push({ name: "Instrucciones" });
-    },
-    completedCrearRegistro: function() {
-      alert("Creación de registro exitosa ");
-      this.$router.push({ name: "CrearSeguimiento" });
-    },
-    completedLogIn: function() {
-      alert("Autenticación exitosa");
-      this.$router.push({ name: "Instrucciones" });
-      this.verificarAutenticacion();
-    },
+    // completedCrearSeguimiento: function() {
+    //   alert("Creación de seguimiento exitosa");
+    //   this.$router.push({ name: "Instrucciones" });
+    // },
+    // completedCrearRegistro: function() {
+    //   alert("Creación de registro exitosa ");
+    //   this.$router.push({ name: "CrearSeguimiento" });
+    // },
+    // completedLogIn: function() {
+    //   alert("Autenticación exitosa");
+    //   this.$router.push({ name: "Instrucciones" });
+    //   this.verificarAutenticacion();
+    // },
 
-    completedCrearNuevoUsuario: function() {
-      alert("Creación de cuenta exitosa. Por favor inicie sesión");
-      this.$router.push({ name: "IniciarSesion" });
-    },
+    // completedCrearNuevoUsuario: function() {
+    //   alert("Creación de cuenta exitosa. Por favor inicie sesión");
+    //   this.$router.push({ name: "IniciarSesion" });
+    // },
 
-    completedCerrarSesion: function() {
-      alert("Sesión cerrada correctamente");
-      this.$router.push({ name: "Instrucciones" });
-      this.verificarAutenticacion();
-    },
+    // completedCerrarSesion: function() {
+    //   alert("Sesión cerrada correctamente");
+    //   this.$router.push({ name: "Instrucciones" });
+    //   this.verificarAutenticacion();
+    // },
 
-    completedEliminarUsuario: function() {
-      alert("Usuario eliminado correctamente. Sesión cerrada");
-      this.$router.push({ name: "Instrucciones" });
-      this.verificarAutenticacion();
-    },
+    // completedEliminarUsuario: function() {
+    //   alert("Usuario eliminado correctamente. Sesión cerrada");
+    //   this.$router.push({ name: "Instrucciones" });
+    //   this.verificarAutenticacion();
+    // },
   },
 
   created: function() {
