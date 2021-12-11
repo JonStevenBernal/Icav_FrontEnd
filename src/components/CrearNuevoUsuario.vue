@@ -45,7 +45,7 @@
 <script>
 import gql from "graphql-tag";
 export default {
-  name: "SignUp",
+  name: "CrearNuevoUsuario",
   data: function() {
     return {
       user: {
@@ -68,24 +68,18 @@ export default {
               }
             }
           `,
-
           variables: {
             userInput: this.user,
           },
         })
-
         .then((result) => {
           let dataLogIn = {
             username: this.user.username,
-
             token_access: result.data.signUpUser.access,
-
             token_refresh: result.data.signUpUser.refresh,
           };
-
           this.$emit("completedSignUp", dataLogIn);
         })
-
         .catch((error) => {
           alert("ERROR: Fallo en el registro.");
         });

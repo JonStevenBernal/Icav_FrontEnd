@@ -62,7 +62,7 @@
     <router-view
       v-on:completedModificarSeguimiento="completedModificarSeguimiento"
       v-on:completedCrearSeguimiento="completedCrearSeguimiento"
-      v-on:completedCrearRegistro="completedCrearRegistro"
+      v-on:completedSignUp="completedSignUp"
       v-on:completedLogIn="completedLogIn"
       v-on:completedCrearNuevoUsuario="completedCrearNuevoUsuario"
       v-on:completedCerrarSesion="completedCerrarSesion"
@@ -169,10 +169,10 @@ export default {
     //   this.verificarAutenticacion();
     // },
 
-    // completedCrearNuevoUsuario: function() {
-    //   alert("Creación de cuenta exitosa. Por favor inicie sesión");
-    //   this.$router.push({ name: "IniciarSesion" });
-    // },
+    completedSignUp: function() {
+      alert("Creación de cuenta exitosa. Por favor inicie sesión");
+      this.$router.push({ name: "IniciarSesion" });
+    },
 
     // completedCerrarSesion: function() {
     //   alert("Sesión cerrada correctamente");
