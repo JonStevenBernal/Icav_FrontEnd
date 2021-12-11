@@ -60,6 +60,7 @@
   </header>
   <main class="main-component">
     <router-view
+      v-on:completedSignUp="completedSignUp"
       v-on:completedModificarSeguimiento="completedModificarSeguimiento"
       v-on:completedCrearSeguimiento="completedCrearSeguimiento"
       v-on:completedCrearRegistro="completedCrearRegistro"
@@ -147,6 +148,19 @@ export default {
 
     loadCrearSeguimiento: function() {
       this.$router.push({ name: "CrearSeguimiento" });
+    },
+
+    completedSignUp: function(data){
+      alert("¡Registro de usuario exitoso!");
+      this.completedLogIn(data);
+    },
+
+    completedLogIn: function(data){
+      localStorage.setItem('username', data.username);
+      localStorage.setItem('tokenRefresh', data.tokenRefresh);
+      localStorage.setItem('tokenAccess', data.tokenAccess);
+      alert("Autenticación exitosa");
+      this.loadInicio();
     },
 
     // completedModificarSeguimiento: function() {
