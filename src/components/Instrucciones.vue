@@ -4,16 +4,14 @@
     <div class="section_main-home">
       <h2>¡Bienvenido a Coronactual!</h2>
       <p>
-        En este sitio web se puede encontrar informacion acerca del actual brote
-        de enfermedad por coronavirus (COVID-19) en el departamento del
-        Atlántico. El usuario de esta página es la Secretaría de Salud de dicho
-        departamento. <br />
+        En este sitio web está destinado para los funcionarios de la EPS UNEPS.
+        Como funcionario puede crear una cuenta, iniciar sesión, cerrar sesión y eliminar su cuenta.
         <br />
-
-        Este aplicativo permite agregar, consultar y filtar registros de
-        contagio. Cada uno de los registros tiene un seguimiento, el cual se
-        puede modificar seleccionándolo dentro de los servicios de mostrar y de
-        filtrar.<br />
+        <br />
+        Este aplicativo permite gestionar la información de los afiliados de la EPS. 
+        Así mismo, teniendo en cuenta el actual brote de enfermedad por coronavirus (COVID-19),
+        la aplicación permite llevar un registro tanto de los contagios como de las vacunas aplicadas de los afiliados.
+        <br />
       </p>
       <p v-if="!isAuth">
         Para acceder a estos servicios, por favor inicie sesión o cree una nueva

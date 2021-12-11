@@ -4,8 +4,8 @@
       <img src="../assets/icons8-virus-pur.svg" alt="logo coronactual" />
       <h2>Crear una nueva cuenta de usuario</h2>
       <p>
-        Para crear un nueva cuenta, por favor ingrese un nombre de usuario y
-        contraseña:
+        Para crear un nueva cuenta, por favor ingrese un nombre de usuario,
+        nombres y apellidos, una contraseña y un correo electrónico:
       </p>
       <form class="creacion_container-form" v-on:submit.prevent="processSignUp">
         <input
@@ -61,22 +61,22 @@ export default {
       await this.$apollo
         .mutate({
           mutation: gql`
-            mutation($userInput: SignUpInput!) {
-              signUpUser(userInput: $userInput) {
+            mutation($user: SignUpInput!) {
+              createUser(user: $user) {
                 refresh
                 access
               }
             }
           `,
           variables: {
-            userInput: this.user,
+            user: this.user,
           },
         })
         .then((result) => {
           let dataLogIn = {
             username: this.user.username,
-            token_access: result.data.signUpUser.access,
-            token_refresh: result.data.signUpUser.refresh,
+            token_access: result.data.createUser.access,
+            token_refresh: result.data.createUser.refresh,
           };
           this.$emit("completedSignUp", dataLogIn);
         })

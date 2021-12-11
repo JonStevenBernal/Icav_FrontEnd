@@ -23,32 +23,31 @@
     </div>
     <nav class="nav animate__animated animate__fadeInDown" v-show="showNav">
       <ul class="nav_section">
-        <li class="" v-on:click="loadInicio">Inicio</li>
-        <li class="" v-on:click="loadMostrar">
+        <li class="" v-if="!is_auth" v-on:click="loadInicio">Inicio</li>
+        <li class="" v-if="is_auth" v-on:click="loadMostrar">
           Mostrar Registros
         </li>
-        <li class="" v-on:click="loadCrearRegistro">
+        <li class="" v-if="is_auth" v-on:click="loadCrearRegistro">
           Crear Registro
         </li>
-        <li class="" v-on:click="loadFiltrarSexo">
+        <li class="" v-if="is_auth" v-on:click="loadFiltrarSexo">
           Filtrar Sexo
         </li>
-        <li class="" v-on:click="loadFiltrarEstado">
+        <li class="" v-if="is_auth" v-on:click="loadFiltrarEstado">
           Filtrar Estado
         </li>
-        <li class="" v-on:click="loadIniciarSesion">
-          Iniciar Sesión
-        </li>
-        <li class="" v-on:click="loadCerrarSesion">
-          Cerrar Sesión
-        </li>
-        <li class="" v-on:click="loadEliminarCuenta">
+        <li class="" v-if="is_auth" v-on:click="loadEliminarCuenta">
           Eliminar cuenta
         </li>
-        <li class="" v-on:click="loadCrearNuevoUsuario">
+        <li class="" v-if="!is_auth" v-on:click="loadCrearNuevoUsuario">
           Crear nueva cuenta
         </li>
-
+        <li class="" v-if="!is_auth" v-on:click="loadIniciarSesion">
+          Iniciar Sesión
+        </li>
+        <li class="" v-if="is_auth" v-on:click="logOut">
+          Cerrar Sesión
+        </li>
         <!-- <li class="" v-on:click="loadCrearSeguimiento">
           Crear seguimiento
         </li>
@@ -60,10 +59,11 @@
   </header>
   <main class="main-component">
     <router-view
-      v-on:completedModificarSeguimiento="completedModificarSeguimiento"
-      v-on:completedCrearSeguimiento="completedCrearSeguimiento"
       v-on:completedSignUp="completedSignUp"
       v-on:completedLogIn="completedLogIn"
+      v-on:logOut="logOut"
+      v-on:completedModificarSeguimiento="completedModificarSeguimiento"
+      v-on:completedCrearSeguimiento="completedCrearSeguimiento"
       v-on:completedCrearNuevoUsuario="completedCrearNuevoUsuario"
       v-on:completedCerrarSesion="completedCerrarSesion"
       v-on:completedEliminarUsuario="completedEliminarUsuario"
@@ -83,7 +83,7 @@ export default {
     //inicializar variables dentro de este componente
     return {
       showNav: false,
-      // isAuth: false,
+      is_auth: false,
     };
   },
 
@@ -93,6 +93,12 @@ export default {
       if (this.showNav == true) this.showNav = false;
       else this.showNav = true;
     },
+    verifyAuth: function() {
+      this.is_auth = localStorage.getItem("isAuth") || false;
+      if (this.is_auth == false) this.$router.push({ name: "IniciarSesion" });
+      else this.$router.push({ name: "Instrucciones" });
+    },
+
     // verificarAutenticacion: function() {
     //   console.log(localStorage.getItem("isAuth"));
     //   if (localStorage.getItem("isAuth") == "true") {
@@ -149,6 +155,26 @@ export default {
       this.$router.push({ name: "CrearSeguimiento" });
     },
 
+    completedSignUp: function(data) {
+      alert("¡Registro de usuario exitoso!");
+      this.completedLogIn(data);
+    },
+
+    completedLogIn: function(data) {
+      localStorage.setItem("isAuth", true);
+      localStorage.setItem("username", data.username);
+      localStorage.setItem("tokenAccess", data.tokenAccess);
+      localStorage.setItem("tokenRefresh", data.tokenRefresh);
+      alert("Autenticación exitosa");
+      this.verifyAuth();
+    },
+
+    logOut: function() {
+      localStorage.clear();
+      alert("Sesión Cerrada");
+      this.verifyAuth();
+    },
+
     // completedModificarSeguimiento: function() {
     //   localStorage.removeItem("id");
     //   alert("Modificación de seguimiento exitosa");
@@ -169,10 +195,10 @@ export default {
     //   this.verificarAutenticacion();
     // },
 
-    completedSignUp: function() {
-      alert("Creación de cuenta exitosa. Por favor inicie sesión");
-      this.$router.push({ name: "IniciarSesion" });
-    },
+    // completedSignUp: function(data) {
+    //   alert("Creación de cuenta exitosa. Por favor inicie sesión");
+    //   this.$router.push({ name: "IniciarSesion" });
+    // },
 
     // completedCerrarSesion: function() {
     //   alert("Sesión cerrada correctamente");
@@ -189,6 +215,7 @@ export default {
 
   created: function() {
     //función que se ejecuta al crear el componente
+    // this.verifyAuth();
   },
 };
 </script>
