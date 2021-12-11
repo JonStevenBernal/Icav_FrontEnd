@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICAV-SIGN-IN</title>
+<style id="applicationStylesheet" type="text/css">
+	.mediaViewInfo {
+		--web-view-name: ICAV-SIGN-IN;
+		--web-view-id: ICAV-SIGN-IN;
+		--web-enable-deep-linking: true;
+	}
+	:root {
+		--web-view-ids: ICAV-SIGN-IN;
+	}
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		border: none;
+	}
+	.ICAV-SIGN-IN_Class {
+		position: absolute;
+		width: 1600px;
+		height: 960px;
+		background-color: rgba(240,250,248,1);
+		overflow: hidden;
+		--web-view-name: ICAV-SIGN-IN;
+		--web-view-id: ICAV-SIGN-IN;
+		--web-enable-deep-linking: true;
+	}
+	.SignInComponent_Class {
+		position: absolute;
+		width: 1600px;
+		height: 960px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+	}
+	.right_div_Class {
+		position: absolute;
+		width: 800px;
+		height: 960px;
+		left: 800px;
+		top: 0px;
+		overflow: visible;
+	}
+	.bg_white_Class {
+		fill: rgba(255,255,255,1);
+	}
+	.bg_white {
+		position: absolute;
+		overflow: visible;
+		width: 800px;
+		height: 960px;
+		left: 0px;
+		top: 0px;
+	}
+	.Trminos_y_condiciones_Poltica__Class {
+		left: 285px;
+		top: 926px;
+		position: absolute;
+		overflow: visible;
+		width: 231px;
+		white-space: nowrap;
+		line-height: 13px;
+		margin-top: -1px;
+		text-align: center;
+		font-family: Avenir;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 11px;
+		color: rgba(221,221,221,1);
+		text-decoration: underline;
+	}
+	.login_div_Class {
+		position: absolute;
+		width: 402px;
+		height: 362px;
+		left: 200px;
+		top: 296px;
+		overflow: visible;
+	}
+	.RememberMe_Class {
+		position: absolute;
+		width: 402px;
+		height: 18px;
+		left: 0px;
+		top: 229px;
+		overflow: visible;
+	}
+	.Rectangle_165_Class {
+		fill: rgba(255,255,255,1);
+		stroke: rgba(128,132,149,1);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Rectangle_165 {
+		position: absolute;
+		overflow: visible;
+		width: 18px;
+		height: 18px;
+		left: 0px;
+		top: 0px;
+	}
+	.Recordarme_Class {
+		left: 33px;
+		top: 0px;
+		position: absolute;
+		overflow: visible;
+		width: 81px;
+		white-space: nowrap;
+		line-height: 24px;
+		margin-top: -4.5px;
+		text-align: left;
+		font-family: Proxima Nova;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 15px;
+		color: rgba(100,109,130,1);
+	}
+	.Olvid_mi_contrasea_Class {
+		left: 263px;
+		top: 0px;
+		position: absolute;
+		overflow: visible;
+		width: 140px;
+		white-space: nowrap;
+		line-height: 24px;
+		margin-top: -4.5px;
+		text-align: right;
+		font-family: Proxima Nova;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 15px;
+		color: rgba(100,109,130,1);
+	}
+	.btn_login_Class {
+		position: absolute;
+		width: 185px;
+		height: 50px;
+		left: 0px;
+		top: 312px;
+		overflow: visible;
+	}
+	.Rectangle_166_Class {
+		fill: rgba(59,58,81,1);
+		stroke: rgba(221,221,221,1);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Rectangle_166 {
+		position: absolute;
+		overflow: visible;
+		width: 185px;
+		height: 50px;
+		left: 0px;
+		top: 0px;
+	}
+	.Iniciar_sesin_Class {
+		left: 38px;
+		top: 14px;
+		position: absolute;
+		overflow: visible;
+		width: 103px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: Avenir;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 18px;
+		color: rgba(255,255,255,1);
+	}
+	.btn_signup_Class {
+		position: absolute;
+		width: 185px;
+		height: 50px;
+		left: 215px;
+		top: 312px;
+		overflow: visible;
+	}
+	.Rectangle_167_Class {
+		fill: transparent;
+		stroke: rgba(59,58,81,1);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Rectangle_167 {
+		position: absolute;
+		overflow: visible;
+		width: 185px;
+		height: 50px;
+		left: 0px;
+		top: 0px;
+	}
+	.Registrarse_Class {
+		left: 45px;
+		top: 14px;
+		position: absolute;
+		overflow: visible;
+		width: 89px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: Avenir;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 18px;
+		color: rgba(77,79,92,1);
+	}
+	.InputUsername_Class {
+		position: absolute;
+		width: 400px;
+		height: 29.809px;
+		left: 0px;
+		top: 77px;
+		overflow: visible;
+	}
+	.Username_Class {
+		left: 6.08px;
+		top: 0px;
+		position: absolute;
+		overflow: visible;
+		width: 69px;
+		white-space: nowrap;
+		line-height: 24px;
+		margin-top: -4.5px;
+		text-align: left;
+		font-family: Proxima Nova;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 15px;
+		color: rgba(100,109,130,1);
+	}
+	.Path_297_Class {
+		fill: transparent;
+		stroke: rgba(233,233,240,1);
+		stroke-width: 2px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Path_297 {
+		overflow: visible;
+		position: absolute;
+		width: 400px;
+		height: 2px;
+		left: 0px;
+		top: 29.809px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	.InputPassword_Class {
+		position: absolute;
+		width: 400px;
+		height: 29.809px;
+		left: 0px;
+		top: 153px;
+		overflow: visible;
+	}
+	.Contrasea_Class {
+		left: 6.08px;
+		top: 0px;
+		position: absolute;
+		overflow: visible;
+		width: 77px;
+		white-space: nowrap;
+		line-height: 24px;
+		margin-top: -4.5px;
+		text-align: left;
+		font-family: Proxima Nova;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 15px;
+		color: rgba(100,109,130,1);
+	}
+	.Path_297__Class {
+		fill: transparent;
+		stroke: rgba(233,233,240,1);
+		stroke-width: 2px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Path_297_ {
+		overflow: visible;
+		position: absolute;
+		width: 400px;
+		height: 2px;
+		left: 0px;
+		top: 29.809px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	.Bienvenido_Por_favor_inicia_se_Class {
+		opacity: 0.5;
+		left: 43px;
+		top: 0px;
+		position: absolute;
+		overflow: visible;
+		width: 315px;
+		white-space: nowrap;
+		line-height: 24px;
+		margin-top: -4.5px;
+		text-align: center;
+		font-family: Proxima Nova;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 15px;
+		color: rgba(100,109,130,1);
+	}
+	.ICAV-LOGO_Class {
+		position: absolute;
+		width: 159px;
+		height: 56px;
+		left: 317px;
+		top: 207px;
+		overflow: visible;
+	}
+	.left_div_Class {
+		position: absolute;
+		width: 800px;
+		height: 960px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+	}
+	.bg_gradient_bb_Class {
+		fill: url(#bg_gradient_bb);
+	}
+	.bg_gradient_bb {
+		mix-blend-mode: multiply;
+		position: absolute;
+		overflow: visible;
+		width: 800px;
+		height: 960px;
+		left: 0px;
+		top: 0px;
+	}
+</style>
+<script >
+
+</script>
+</head>
+<body>
+<div id="ICAV-SIGN-IN" class="ICAV-SIGN-IN_Class">
+	<div class="SignInComponent SignInComponent_Class">
+		<div class="right_div right_div_Class">
+			<svg class="bg_white">
+				<rect class="bg_white_Class" rx="0" ry="0" x="0" y="0" width="800" height="960">
+				</rect>
+			</svg>
+			<div class="Trminos_y_condiciones_Poltica__Class">
+				<span>Términos y condiciones. Política de privacidad.</span>
+			</div>
+			<div class="login_div login_div_Class">
+				<div class="RememberMe RememberMe_Class">
+					<svg class="Rectangle_165">
+						<rect class="Rectangle_165_Class" rx="4" ry="4" x="0" y="0" width="18" height="18">
+						</rect>
+					</svg>
+					<div class="Recordarme_Class">
+						<span>Recordarme</span>
+					</div>
+					<div class="Olvid_mi_contrasea_Class">
+						<span>Olvidé mi contraseña</span>
+					</div>
+				</div>
+				<div class="btn_login btn_login_Class">
+					<svg class="Rectangle_166">
+						<rect class="Rectangle_166_Class" rx="4" ry="4" x="0" y="0" width="185" height="50">
+						</rect>
+					</svg>
+					<div class="Iniciar_sesin_Class">
+						<span>Iniciar sesión</span>
+					</div>
+				</div>
+				<div class="btn_signup btn_signup_Class">
+					<svg class="Rectangle_167">
+						<rect class="Rectangle_167_Class" rx="4" ry="4" x="0" y="0" width="185" height="50">
+						</rect>
+					</svg>
+					<div class="Registrarse_Class">
+						<span>Registrarse</span>
+					</div>
+				</div>
+				<div class="InputUsername InputUsername_Class">
+					<div class="Username_Class">
+						<span>Username</span>
+					</div>
+					<svg class="Path_297" viewBox="-835.08 2509.809 400 2">
+						<path class="Path_297_Class" d="M -835.0799560546875 2509.80859375 C -835.0799560546875 2509.80859375 -435.0799560546875 2509.80859375 -435.0799560546875 2509.80859375">
+						</path>
+					</svg>
+				</div>
+				<div class="InputPassword InputPassword_Class">
+					<div class="Contrasea_Class">
+						<span>Contraseña</span>
+					</div>
+					<svg class="Path_297_" viewBox="-835.08 2509.809 400 2">
+						<path class="Path_297__Class" d="M -835.0799560546875 2509.80859375 C -835.0799560546875 2509.80859375 -435.0799560546875 2509.80859375 -435.0799560546875 2509.80859375">
+						</path>
+					</svg>
+				</div>
+				<div class="Bienvenido_Por_favor_inicia_se_Class">
+					<span>Bienvenido! Por favor inicia sesión en tu cuenta.</span>
+				</div>
+			</div>
+			<img class="ICAV-LOGO_Class" src="./assets/ICAV-LOGO.png"/>
+
+		</div>
+		<div class="left_div left_div_Class">
+			<svg class="bg_gradient_bb">
+				<linearGradient id="bg_gradient_bb" spreadMethod="pad" x1="0.453" x2="0.5" y1="1.971" y2="-0.016">
+					<stop offset="0" stop-color="#59d6fc" stop-opacity="1"></stop>
+					<stop offset="1" stop-color="#3b3a51" stop-opacity="1"></stop>
+				</linearGradient>
+				<rect class="bg_gradient_bb_Class" rx="0" ry="0" x="0" y="0" width="800" height="960">
+				</rect>
+			</svg>
+		</div>
+	</div>
+</div>
+</body>
+</html>

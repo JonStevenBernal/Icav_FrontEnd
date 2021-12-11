@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ICAV-SIGN-UP</title>
+<style id="applicationStylesheet" type="text/css">
+	.mediaViewInfo {
+		--web-view-name: ICAV-SIGN-UP;
+		--web-view-id: ICAV-SIGN-UP;
+		--web-enable-deep-linking: true;
+	}
+	:root {
+		--web-view-ids: ICAV-SIGN-UP;
+	}
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		border: none;
+	}
+	.ICAV-SIGN-UP_Class {
+		position: absolute;
+		width: 1600px;
+		height: 960px;
+		background-color: rgba(245,247,249,1);
+		overflow: hidden;
+		--web-view-name: ICAV-SIGN-UP;
+		--web-view-id: ICAV-SIGN-UP;
+		--web-enable-deep-linking: true;
+	}
+	.text_Class {
+		position: absolute;
+		width: 800px;
+		height: 960px;
+		left: 800px;
+		top: 0px;
+		overflow: visible;
+	}
+	.Rectangle_163_Class {
+		fill: rgba(255,255,255,1);
+	}
+	.Rectangle_163 {
+		position: absolute;
+		overflow: visible;
+		width: 800px;
+		height: 960px;
+		left: 0px;
+		top: 0px;
+	}
+	.firstname_Class {
+		position: absolute;
+		width: 187.329px;
+		height: 29.809px;
+		left: 200.92px;
+		top: 260px;
+		overflow: visible;
+	}
+	.Nombres_Class {
+		left: 6.08px;
+		top: 0px;
+		position: absolute;
+		overflow: visible;
+		width: 61px;
+		white-space: nowrap;
+		line-height: 24px;
+		margin-top: -4.5px;
+		text-align: left;
+		font-family: Proxima Nova;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 15px;
+		color: rgba(100,109,130,1);
+	}
+	.Path_297_Class {
+		fill: transparent;
+		stroke: rgba(233,233,240,1);
+		stroke-width: 2px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Path_297 {
+		overflow: visible;
+		position: absolute;
+		width: 187.329px;
+		height: 2px;
+		left: 0px;
+		top: 29.809px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	.lastname_Class {
+		position: absolute;
+		width: 187.329px;
+		height: 29.809px;
+		left: 413.92px;
+		top: 260px;
+		overflow: visible;
+	}
+	.Apellidos_Class {
+		left: 6.08px;
+		top: 0px;
+		position: absolute;
+		overflow: visible;
+		width: 62px;
+		white-space: nowrap;
+		line-height: 24px;
+		margin-top: -4.5px;
+		text-align: left;
+		font-family: Proxima Nova;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 15px;
+		color: rgba(100,109,130,1);
+	}
+	.Path_297_t_Class {
+		fill: transparent;
+		stroke: rgba(233,233,240,1);
+		stroke-width: 2px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Path_297_t {
+		overflow: visible;
+		position: absolute;
+		width: 187.329px;
+		height: 2px;
+		left: 0px;
+		top: 29.809px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	.Por_favor_completa_los_campos__Class {
+		opacity: 0.5;
+		left: 201px;
+		top: 180px;
+		position: absolute;
+		overflow: visible;
+		width: 399px;
+		white-space: nowrap;
+		line-height: 24px;
+		margin-top: -4.5px;
+		text-align: center;
+		font-family: Proxima Nova;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 15px;
+		color: rgba(100,109,130,1);
+	}
+	.iagreewithterms_Class {
+		position: absolute;
+		width: 354px;
+		height: 18px;
+		left: 200px;
+		top: 634px;
+		overflow: visible;
+	}
+	.Rectangle_165_Class {
+		fill: rgba(255,255,255,1);
+		stroke: rgba(128,132,149,1);
+		stroke-width: 1px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Rectangle_165 {
+		position: absolute;
+		overflow: visible;
+		width: 18px;
+		height: 18px;
+		left: 0px;
+		top: 0px;
+	}
+	.Estoy_de_acuerdo_con_los_trmin_Class {
+		left: 33px;
+		top: 0px;
+		position: absolute;
+		overflow: visible;
+		width: 322px;
+		white-space: nowrap;
+		line-height: 24px;
+		margin-top: -4.5px;
+		text-align: left;
+		font-family: Proxima Nova;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 15px;
+		color: rgba(100,109,130,1);
+	}
+	.Ya_tiene_una_cuenta_Inicie_ses_Class {
+		left: 297px;
+		top: 787px;
+		position: absolute;
+		overflow: visible;
+		width: 225px;
+		white-space: nowrap;
+		line-height: 24px;
+		margin-top: -4.5px;
+		text-align: center;
+		font-family: Proxima Nova;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 15px;
+		color: rgba(100,109,130,1);
+	}
+	.Trminos_y_condiciones_Poltica__Class {
+		left: 285px;
+		top: 926px;
+		position: absolute;
+		overflow: visible;
+		width: 231px;
+		white-space: nowrap;
+		line-height: 24px;
+		margin-top: -6.5px;
+		text-align: center;
+		font-family: Avenir;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 11px;
+		color: rgba(221,221,221,1);
+		text-decoration: underline;
+	}
+	.btn_signup_Class {
+		position: absolute;
+		width: 185px;
+		height: 50px;
+		left: 316px;
+		top: 696px;
+		overflow: visible;
+	}
+	.Rectangle_166_Class {
+		fill: rgba(59,58,81,1);
+	}
+	.Rectangle_166 {
+		position: absolute;
+		overflow: visible;
+		width: 185px;
+		height: 50px;
+		left: 0px;
+		top: 0px;
+	}
+	.Registrarse_Class {
+		left: 45px;
+		top: 14px;
+		position: absolute;
+		overflow: visible;
+		width: 89px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: Avenir;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 18px;
+		color: rgba(255,255,255,1);
+	}
+	.label_Class {
+		position: absolute;
+		width: 400px;
+		height: 277.809px;
+		left: 200px;
+		top: 334px;
+		overflow: hidden;
+	}
+	.label__Class {
+		position: absolute;
+		width: 400px;
+		height: 29.809px;
+		left: 0px;
+		top: 1px;
+		overflow: visible;
+	}
+	.Username_Class {
+		left: 6.08px;
+		top: 0px;
+		position: absolute;
+		overflow: visible;
+		width: 69px;
+		white-space: nowrap;
+		line-height: 24px;
+		margin-top: -4.5px;
+		text-align: left;
+		font-family: Proxima Nova;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 15px;
+		color: rgba(100,109,130,1);
+	}
+	.Path_297__Class {
+		fill: transparent;
+		stroke: rgba(233,233,240,1);
+		stroke-width: 2px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Path_297_ {
+		overflow: visible;
+		position: absolute;
+		width: 400px;
+		height: 2px;
+		left: 0px;
+		top: 29.809px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	.label_ba_Class {
+		position: absolute;
+		width: 400px;
+		height: 29.809px;
+		left: 0px;
+		top: 77px;
+		overflow: visible;
+	}
+	.Email_Class {
+		left: 6.08px;
+		top: 0px;
+		position: absolute;
+		overflow: visible;
+		width: 36px;
+		white-space: nowrap;
+		line-height: 24px;
+		margin-top: -4.5px;
+		text-align: left;
+		font-family: Proxima Nova;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 15px;
+		color: rgba(100,109,130,1);
+	}
+	.Path_297_ba_Class {
+		fill: transparent;
+		stroke: rgba(233,233,240,1);
+		stroke-width: 2px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Path_297_ba {
+		overflow: visible;
+		position: absolute;
+		width: 400px;
+		height: 2px;
+		left: 0px;
+		top: 29.809px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	.label_bb_Class {
+		position: absolute;
+		width: 400px;
+		height: 29.809px;
+		left: 0px;
+		top: 153px;
+		overflow: visible;
+	}
+	.Contrasea_Class {
+		left: 6.08px;
+		top: 0px;
+		position: absolute;
+		overflow: visible;
+		width: 77px;
+		white-space: nowrap;
+		line-height: 24px;
+		margin-top: -4.5px;
+		text-align: left;
+		font-family: Proxima Nova;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 15px;
+		color: rgba(100,109,130,1);
+	}
+	.Path_297_bc_Class {
+		fill: transparent;
+		stroke: rgba(233,233,240,1);
+		stroke-width: 2px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Path_297_bc {
+		overflow: visible;
+		position: absolute;
+		width: 400px;
+		height: 2px;
+		left: 0px;
+		top: 29.809px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	.label_bd_Class {
+		position: absolute;
+		width: 400px;
+		height: 29.809px;
+		left: 0px;
+		top: 229px;
+		overflow: visible;
+	}
+	.Confirma_tu_contrasea_Class {
+		left: 6.08px;
+		top: 0px;
+		position: absolute;
+		overflow: visible;
+		width: 154px;
+		white-space: nowrap;
+		line-height: 24px;
+		margin-top: -4.5px;
+		text-align: left;
+		font-family: Proxima Nova;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 15px;
+		color: rgba(100,109,130,1);
+	}
+	.Path_297_bf_Class {
+		fill: transparent;
+		stroke: rgba(233,233,240,1);
+		stroke-width: 2px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 4;
+		shape-rendering: auto;
+	}
+	.Path_297_bf {
+		overflow: visible;
+		position: absolute;
+		width: 400px;
+		height: 2px;
+		left: 0px;
+		top: 29.809px;
+		transform: matrix(1,0,0,1,0,0);
+	}
+	.ICAV-LOGO_Class {
+		position: absolute;
+		width: 159px;
+		height: 56px;
+		left: 316px;
+		top: 101px;
+		overflow: visible;
+	}
+	.erol-ahmed-aIYFR0vbADk-unsplas_bi_Class {
+		fill: url(#erol-ahmed-aIYFR0vbADk-unsplas_bi);
+	}
+	.erol-ahmed-aIYFR0vbADk-unsplas_bi {
+		mix-blend-mode: multiply;
+		position: absolute;
+		overflow: visible;
+		width: 800px;
+		height: 960px;
+		left: 0px;
+		top: 0px;
+	}
+</style>
+<script >
+
+</script>
+
+</head>
+<body>
+<div id="ICAV-SIGN-UP" class="ICAV-SIGN-UP_Class">
+	<div class="text_Class">
+		<svg class="Rectangle_163">
+			<rect class="Rectangle_163_Class" rx="0" ry="0" x="0" y="0" width="800" height="960">
+			</rect>
+		</svg>
+		<div class="firstname_Class">
+			<div class="Nombres_Class">
+				<span>Nombres</span>
+			</div>
+			<svg class="Path_297" viewBox="-835.08 2509.809 187.329 2">
+				<path class="Path_297_Class" d="M -835.0799560546875 2509.80859375 C -835.0799560546875 2509.80859375 -647.7506713867188 2509.80859375 -647.7506713867188 2509.80859375">
+				</path>
+			</svg>
+		</div>
+		<div class="lastname_Class">
+			<div class="Apellidos_Class">
+				<span>Apellidos</span>
+			</div>
+			<svg class="Path_297_t" viewBox="-835.08 2509.809 187.329 2">
+				<path class="Path_297_t_Class" d="M -835.0799560546875 2509.80859375 C -835.0799560546875 2509.80859375 -647.7506713867188 2509.80859375 -647.7506713867188 2509.80859375">
+				</path>
+			</svg>
+		</div>
+		<div class="Por_favor_completa_los_campos__Class">
+			<span>Por favor completa los campos para crear una nueva cuenta.</span>
+		</div>
+		<div class="iagreewithterms_Class">
+			<svg class="Rectangle_165">
+				<rect class="Rectangle_165_Class" rx="4" ry="4" x="0" y="0" width="18" height="18">
+				</rect>
+			</svg>
+			<div class="Estoy_de_acuerdo_con_los_trmin_Class">
+				<span>Estoy de acuerdo con los términos y condiciones</span>
+			</div>
+		</div>
+		<div class="Ya_tiene_una_cuenta_Inicie_ses_Class">
+			<span>Ya tiene una cuenta? </span><span style="text-decoration:underline;">Inicie sesión</span><span>.</span>
+		</div>
+		<div class="Trminos_y_condiciones_Poltica__Class">
+			<span>Términos y condiciones. Política de privacidad.</span>
+		</div>
+		<div class="btn_signup_Class">
+			<svg class="Rectangle_166">
+				<rect class="Rectangle_166_Class" rx="4" ry="4" x="0" y="0" width="185" height="50">
+				</rect>
+			</svg>
+			<div class="Registrarse_Class">
+				<span>Registrarse</span>
+			</div>
+		</div>
+		<div class="label_Class">
+			<div class="label label__Class">
+				<div class="Username_Class">
+					<span>Username</span>
+				</div>
+				<svg class="Path_297_" viewBox="-835.08 2509.809 400 2">
+					<path class="Path_297__Class" d="M -835.0799560546875 2509.80859375 C -835.0799560546875 2509.80859375 -435.0799560546875 2509.80859375 -435.0799560546875 2509.80859375">
+					</path>
+				</svg>
+			</div>
+			<div class="label label_ba_Class">
+				<div class="Email_Class">
+					<span>Email</span>
+				</div>
+				<svg class="Path_297_ba" viewBox="-835.08 2509.809 400 2">
+					<path class="Path_297_ba_Class" d="M -835.0799560546875 2509.80859375 C -835.0799560546875 2509.80859375 -435.0799560546875 2509.80859375 -435.0799560546875 2509.80859375">
+					</path>
+				</svg>
+			</div>
+			<div class="label label_bb_Class">
+				<div class="Contrasea_Class">
+					<span>Contraseña</span>
+				</div>
+				<svg class="Path_297_bc" viewBox="-835.08 2509.809 400 2">
+					<path class="Path_297_bc_Class" d="M -835.0799560546875 2509.80859375 C -835.0799560546875 2509.80859375 -435.0799560546875 2509.80859375 -435.0799560546875 2509.80859375">
+					</path>
+				</svg>
+			</div>
+			<div class="label label_bd_Class">
+				<div class="Confirma_tu_contrasea_Class">
+					<span>Confirma tu contraseña</span>
+				</div>
+				<svg class="Path_297_bf" viewBox="-835.08 2509.809 400 2">
+					<path class="Path_297_bf_Class" d="M -835.0799560546875 2509.80859375 C -835.0799560546875 2509.80859375 -435.0799560546875 2509.80859375 -435.0799560546875 2509.80859375">
+					</path>
+				</svg>
+			</div>
+		</div>
+		<img class="ICAV-LOGO_Class" src="./assets/ICAV-LOGO.png"/>
+
+	</div>
+	<svg class="erol-ahmed-aIYFR0vbADk-unsplas_bi">
+		<linearGradient id="erol-ahmed-aIYFR0vbADk-unsplas_bi" spreadMethod="pad" x1="0.453" x2="0.5" y1="1.971" y2="-0.016">
+			<stop offset="0" stop-color="#59d6fc" stop-opacity="1"></stop>
+			<stop offset="1" stop-color="#3b3a51" stop-opacity="1"></stop>
+		</linearGradient>
+		<rect class="erol-ahmed-aIYFR0vbADk-unsplas_bi_Class" rx="0" ry="0" x="0" y="0" width="800" height="960">
+		</rect>
+	</svg>
+</div>
+</body>
+</html>
