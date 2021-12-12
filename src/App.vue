@@ -1,70 +1,72 @@
 <template>
-  <head>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
-  </head>
-  <header class="header">
-    <div class="header_section">
-      <div class="header_section-item" v-on:click="loadInicio">
-        <figure class="item_figure">
-          <img src="./assets/logoIcav.png" alt="logo Icav" />
-        </figure>
-        <div class="item_title">
-          <h1 class="">Icav<br />EPS</h1>
-          <div></div>
-          <p>Estrategia de vacunación <br />COVID-19</p>
+  <div id="app" class="app">
+    <head>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+      />
+    </head>
+    <header class="header">
+      <div class="header_section">
+        <div class="header_section-item" v-on:click="loadInicio">
+          <figure class="item_figure">
+            <img src="./assets/logoIcav.png" alt="logo Icav" />
+          </figure>
+          <div class="item_title">
+            <h1 class="">Icav<br />EPS</h1>
+            <div></div>
+            <p>Estrategia de vacunación <br />COVID-19</p>
+          </div>
         </div>
+        <figure class="header_section_buton" v-on:click="toggleShowNav">
+          <img class="" src="./assets/icons8-menu_rounded.svg" alt="Menu" />
+        </figure>
       </div>
-      <figure class="header_section_buton" v-on:click="toggleShowNav">
-        <img class="" src="./assets/icons8-menu_rounded.svg" alt="Menu" />
-      </figure>
-    </div>
-    <nav class="nav animate__animated animate__fadeInDown" v-show="showNav">
-      <ul class="nav_section">
-        <li class="" v-if="!is_auth" v-on:click="loadInicio">Inicio</li>
-        <li class="" v-if="is_auth" v-on:click="loadMostrar">
-          Mostrar Afiliados
-        </li>
-        <li class="" v-if="is_auth" v-on:click="loadCrearAfiliado">
-          Crear Afiliado
-        </li>
-        <li class="" v-if="is_auth" v-on:click="loadBuscarAfiliado">
-          Buscar Afiliado
-        </li>
-        <li class="" v-if="is_auth" v-on:click="loadPerfil">
-          Perfil
-        </li>
-        <!-- <li class="" v-if="is_auth" v-on:click="loadEliminarCuenta">
+      <nav class="nav animate__animated animate__fadeInDown" v-show="showNav">
+        <ul class="nav_section">
+          <li class="" v-if="!is_auth" v-on:click="loadInicio">Inicio</li>
+          <li class="" v-if="is_auth" v-on:click="loadMostrar">
+            Mostrar Afiliados
+          </li>
+          <li class="" v-if="is_auth" v-on:click="loadCrearAfiliado">
+            Crear Afiliado
+          </li>
+          <li class="" v-if="is_auth" v-on:click="loadBuscarAfiliado">
+            Buscar Afiliado
+          </li>
+          <li class="" v-if="is_auth" v-on:click="loadPerfil">
+            Perfil
+          </li>
+          <!-- <li class="" v-if="is_auth" v-on:click="loadEliminarCuenta">
           Eliminar cuenta
         </li> -->
-        <li class="" v-if="!is_auth" v-on:click="loadCrearNuevoUsuario">
-          Crear nueva cuenta
-        </li>
-        <li class="" v-if="!is_auth" v-on:click="loadIniciarSesion">
-          Iniciar Sesión
-        </li>
-        <li class="" v-if="is_auth" v-on:click="logOut">
-          Cerrar Sesión
-        </li>
-      </ul>
-    </nav>
-  </header>
-  <main class="main-component">
-    <router-view
-      v-on:completedSignUp="completedSignUp"
-      v-on:completedLogIn="completedLogIn"
-      v-on:logOut="logOut"
-      v-on:completedModificarSeguimiento="completedModificarSeguimiento"
-      v-on:completedCrearSeguimiento="completedCrearSeguimiento"
-      v-on:completedCrearNuevoUsuario="completedCrearNuevoUsuario"
-      v-on:completedCerrarSesion="completedCerrarSesion"
-      v-on:completedEliminarUsuario="completedEliminarUsuario"
-    >
-    </router-view>
-  </main>
-  <px-footer />
+          <li class="" v-if="!is_auth" v-on:click="loadCrearNuevoUsuario">
+            Crear nueva cuenta
+          </li>
+          <li class="" v-if="!is_auth" v-on:click="loadIniciarSesion">
+            Iniciar Sesión
+          </li>
+          <li class="" v-if="is_auth" v-on:click="logOut">
+            Cerrar Sesión
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main-component">
+      <router-view
+        v-on:completedSignUp="completedSignUp"
+        v-on:completedLogIn="completedLogIn"
+        v-on:logOut="logOut"
+        v-on:completedModificarSeguimiento="completedModificarSeguimiento"
+        v-on:completedCrearSeguimiento="completedCrearSeguimiento"
+        v-on:completedCrearNuevoUsuario="completedCrearNuevoUsuario"
+        v-on:completedCerrarSesion="completedCerrarSesion"
+        v-on:completedEliminarUsuario="completedEliminarUsuario"
+      >
+      </router-view>
+    </main>
+    <px-footer />
+  </div>
 </template>
 
 <script>
@@ -137,8 +139,8 @@ export default {
     completedLogIn: function(data) {
       localStorage.setItem("isAuth", true);
       localStorage.setItem("username", data.username);
-      localStorage.setItem("tokenAccess", data.tokenAccess);
-      localStorage.setItem("tokenRefresh", data.tokenRefresh);
+      localStorage.setItem("token_access", data.token_access);
+      localStorage.setItem("token_refresh", data.token_refresh);
       alert("Autenticación exitosa");
       this.verifyAuth();
     },
@@ -199,7 +201,7 @@ export default {
 
   created: function() {
     //función que se ejecuta al crear el componente
-    // this.verifyAuth();
+    this.verifyAuth();
   },
 };
 </script>

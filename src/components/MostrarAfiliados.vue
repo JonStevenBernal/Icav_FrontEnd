@@ -3,10 +3,10 @@
     <section class="allregister_container">
       <div class="allregister_container-info">
         <!-- Acá va el titulo -->
-        <h2>Consultar Todos los Registros</h2>
+        <h2>Consultar Todos los Afiliados</h2>
         <!-- Acá va el parrafo -->
         <p>
-          Aqui estás visualizando todos los registros de contagios. Puedes
+          Aqui estás visualizando todos los Afiliados de las EPS. Puedes
           modificar el estado del paciente con los botones de la última columna.
           <!--   <br>Recuerde que para modificar un registro debe seleccionarlo. -->
         </p>
@@ -20,30 +20,16 @@
           <thead class="tabla_table-heading">
             <tr>
               <!--sección COLUMNAS -->
-              <th>Id</th>
-              <th>Fecha de notificacion</th>
-              <th>Fecha de reporte</th>
-              <th>Fecha de sintomas</th>
-              <th>Fecha de diagnostico</th>
+              <th>Identificacion</th>
+              <th>Nombres</th>
+              <th>Apellidos</th>
               <th>Edad</th>
-              <th>Medida edad</th>
+              <th>Medida de Edad</th>
               <th>Sexo</th>
-              <th>Grupo etnico</th>
-              <th>Pertenencia etnica</th>
-              <th>Fecha de recuperacion</th>
-              <th>Tipo recuperacion</th>
-              <!--cols Registro -->
-
-              <th>Departamento</th>
-              <th>Municipio</th>
-
-              <!--  <th>id_evolucion</th> -->
-              <th>ubicacion_caso</th>
-              <th>estado</th>
-              <th>tipo_contagio</th>
-              <th>recuperado</th>
-              <th>fecha_muerte</th>
-              <th>Modificar Seguimiento</th>
+              <th>Correo</th>
+              <th>Ciudad</th>
+              <th>Direccion</th>
+              <th>Modificar Afiliado</th>
             </tr>
           </thead>
           <tbody class="tabla_table-body">
@@ -51,49 +37,27 @@
 
             <tr
               class="table_body-values"
-              v-for="register in registros"
-              :key="register.id"
+              v-for="afiliados in todosAfiliados"
+              :key="afiliados.identificacion"
             >
               <!--Fila 1, datos registro -->
-              <td>{{ register.id_caso }}</td>
-              <td>{{ register.fecha_notificacion }}</td>
-              <td>{{ register.fecha_reporte }}</td>
-              <td>{{ register.fecha_sintomas }}</td>
-              <td>{{ register.fecha_diagnostico_lab }}</td>
-              <td>{{ register.edad }}</td>
-              
-              <td v-if="register.unidad_de_medida_edad == '1'">Años</td>
-              <td v-else-if="register.unidad_de_medida_edad == '3'">Dias</td>
-              <td v-else-if="register.unidad_de_medida_edad == '2'">Meses</td>
-              
-              <td v-if="register.sexo == 'M'">Masculino</td>
-              <td v-else-if="register.sexo == 'F'">Femenino</td>
-              
-              <td>{{ register.grupo_etnico }}</td>
-              
-              <td v-if="register.pertenencia_etnica == '1'">Indigena</td>
-              <td v-if="register.pertenencia_etnica == '2'">ROM</td>
-              <td v-if="register.pertenencia_etnica == '3'">Raizal</td>
-              <td v-if="register.pertenencia_etnica == '4'">Palenquero</td>
-              <td v-if="register.pertenencia_etnica == '5'">Negro</td>
-              <td v-if="register.pertenencia_etnica == '6'">Otro</td>
-              
-              <td>{{ register.fecha_recuperacion }}</td>
-              <td>{{ register.tipo_recuperacion }}</td>
+              <td>{{ afiliados.identificacion }}</td>
+              <td>{{ afiliados.nombres }}</td>
+              <td>{{ afiliados.apellidos }}</td>
+              <td>{{ afiliados.edad }}</td>
+              <td>{{ afiliados.medidaEdad }}</td>
+              <td>{{ afiliados.sexo }}</td>
 
-              <!--Fila 1, datos ubicacion -->
-              <td>{{ register.ubicacion.nombre_departamento }}</td>
-              <td>{{ register.ubicacion.nombre_municipio }}</td>
+              <!-- <td v-if="afiliado.sexo == 'M'">Masculino</td>
+              <td v-else-if="afiliado.sexo == 'F'">Femenino</td> -->
 
-              <!--Fila 1, datos Seguimiento -->
-              <td>{{ register.seguimiento.ubicacion_caso }}</td>
-              <td>{{ register.seguimiento.estado }}</td>
-              <td>{{ register.seguimiento.tipo_contagio }}</td>
-              <td>{{ register.seguimiento.recuperado }}</td>
-              <td>{{ register.seguimiento.fecha_muerte }}</td>
+              <td>{{ afiliados.correo }}</td>
+              <td>{{ afiliados.ciudad }}</td>
+              <td>{{ afiliados.direccion }}</td>
+
               <td>
-                <button v-on:click="llamar(register.id_caso)">
-                  Modificar id:{{ register.id_caso }}
+                <button v-on:click="llamar(afiliados.identificacion)">
+                  Modificar id:{{ afiliados.identificacion }}
                 </button>
               </td>
             </tr>
@@ -105,6 +69,74 @@
 </template>
 
 <script>
+import gql from "graphql-tag";
+
+export default {
+  name: "MostrarAfiliados",
+
+  data: function() {
+    return {
+      //   username: localStorage.getItem("token_access") || "none",
+      todosAfiliados: [],
+
+      //   accountByUsername: {
+      //     balance: "",
+
+      //     lastChange: "",
+      //   },
+    };
+  },
+
+  apollo: {
+    todosAfiliados: {
+      query: gql`
+        query TodosAfiliados {
+          todosAfiliados {
+            identificacion
+            nombres
+            apellidos
+            edad
+            medidaEdad
+            sexo
+            correo
+            ciudad
+            direccion
+          }
+        }
+      `,
+
+      variables() {
+        return {
+          //   username: this.username,
+        };
+      },
+    },
+
+    // accountByUsername: {
+    //   query: gql`
+    //     query($username: String!) {
+    //       accountByUsername(username: $username) {
+    //         balance
+
+    //         lastChange
+    //       }
+    //     }
+    //   `,
+
+    //   variables() {
+    //     return {
+    //       username: this.username,
+    //     };
+    //   },
+    // },
+  },
+
+  created: function() {
+    this.$apollo.queries.todosAfiliados.refetch();
+
+    //   this.$apollo.queries.accountByUsername.refetch();
+  },
+};
 </script>
 
 <style>
