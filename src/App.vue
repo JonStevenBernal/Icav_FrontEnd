@@ -56,7 +56,7 @@
       v-on:completedSignUp="completedSignUp"
       v-on:completedLogIn="completedLogIn"
       v-on:logOut="logOut"
-      v-on:completedModificarSeguimiento="completedModificarSeguimiento"
+      v-on:completedModificarCorreo="completedModificarCorreo"
       v-on:completedCrearSeguimiento="completedCrearSeguimiento"
       v-on:completedCrearNuevoUsuario="completedCrearNuevoUsuario"
       v-on:completedCerrarSesion="completedCerrarSesion"
@@ -159,11 +159,10 @@ export default {
       this.$router.push({ name: "BuscarAfiliado" });
     },
 
-    // completedModificarSeguimiento: function() {
-    //   localStorage.removeItem("id");
-    //   alert("Modificación de seguimiento exitosa");
-    //   this.$router.push({ name: "Instrucciones" });
-    // },
+    completedModificarCorreo: function() {
+      alert("Modificación de correo exitosa");
+      this.$router.push({ name: "Instrucciones" });
+    },
 
     // completedCrearSeguimiento: function() {
     //   alert("Creación de seguimiento exitosa");

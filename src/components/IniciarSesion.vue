@@ -48,6 +48,7 @@ export default {
 
   methods: {
     processLogInUser: async function() {
+      localStorage.clear();
       await this.$apollo
         .mutate({
           mutation: gql`
