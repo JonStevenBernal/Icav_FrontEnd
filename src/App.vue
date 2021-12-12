@@ -25,20 +25,20 @@
       <ul class="nav_section">
         <li class="" v-if="!is_auth" v-on:click="loadInicio">Inicio</li>
         <li class="" v-if="is_auth" v-on:click="loadMostrar">
-          Mostrar Registros
+          Mostrar Afiliados
         </li>
-        <li class="" v-if="is_auth" v-on:click="loadCrearRegistro">
-          Crear Registro
+        <li class="" v-if="is_auth" v-on:click="loadCrearAfiliado">
+          Crear Afiliado
         </li>
-        <li class="" v-if="is_auth" v-on:click="loadFiltrarSexo">
-          Filtrar Sexo
+        <li class="" v-if="is_auth" v-on:click="loadBuscarAfiliado">
+          Buscar Afiliado
         </li>
-        <li class="" v-if="is_auth" v-on:click="loadFiltrarEstado">
-          Filtrar Estado
+        <li class="" v-if="is_auth" v-on:click="loadPerfil">
+          Perfil
         </li>
-        <li class="" v-if="is_auth" v-on:click="loadEliminarCuenta">
+        <!-- <li class="" v-if="is_auth" v-on:click="loadEliminarCuenta">
           Eliminar cuenta
-        </li>
+        </li> -->
         <li class="" v-if="!is_auth" v-on:click="loadCrearNuevoUsuario">
           Crear nueva cuenta
         </li>
@@ -48,12 +48,6 @@
         <li class="" v-if="is_auth" v-on:click="logOut">
           Cerrar Sesión
         </li>
-        <!-- <li class="" v-on:click="loadCrearSeguimiento">
-          Crear seguimiento
-        </li>
-        <li class="" v-on:click="loadModificarSeguimiento">
-          ModificarSeguimiento
-        </li> -->
       </ul>
     </nav>
   </header>
@@ -116,15 +110,11 @@ export default {
     },
 
     loadMostrar: function() {
-      this.$router.push({ name: "MostrarRegistros" });
+      this.$router.push({ name: "MostrarAfiliados" });
     },
 
     loadCrearRegistro: function() {
       this.$router.push({ name: "CrearRegistro" });
-    },
-
-    loadFiltrarSexo: function() {
-      this.$router.push({ name: "FiltrarSexo" });
     },
 
     loadIniciarSesion: function() {
@@ -173,6 +163,13 @@ export default {
       localStorage.clear();
       alert("Sesión Cerrada");
       this.verifyAuth();
+    },
+
+    loadPerfil: function() {
+      this.$router.push({ name: "Perfil" });
+    },
+    loadCrearAfiliado: function() {
+      this.$router.push({ name: "CrearAfiliado" });
     },
 
     // completedModificarSeguimiento: function() {
@@ -248,6 +245,300 @@ html {
 .header {
   width: 100vw;
   background: linear-gradient(#135e9b, #1a78c1);
+}
+.HEADER-Logged_Class {
+  /* position: absolute; */
+  /* width: 1600px; */
+  width: 100vw;
+  height: 159px;
+  background-color: rgba(255, 255, 255, 1);
+  overflow: hidden;
+  --web-view-name: HEADER-Logged;
+  --web-view-id: HEADER-Logged;
+  --web-enable-deep-linking: true;
+}
+.HeaderLogged_Class {
+  position: absolute;
+  width: 1600px;
+  height: 160px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.BreadcrumLogged_Class {
+  position: absolute;
+  width: 1600px;
+  height: 80px;
+  left: 0px;
+  top: 80px;
+  overflow: visible;
+}
+.BGBreadcrum_gg_Class {
+  fill: url(#BGBreadcrum_gg);
+}
+.BGBreadcrum_gg {
+  mix-blend-mode: multiply;
+  overflow: visible;
+  position: absolute;
+  width: 1600px;
+  height: 80px;
+  left: 0px;
+  top: 0px;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+.WelcomeText_Class {
+  position: absolute;
+  width: 278px;
+  height: 45px;
+  left: 29px;
+  top: 20px;
+  overflow: visible;
+}
+.Funcionario_de_EPS_gi_Class {
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  overflow: visible;
+  width: 192px;
+  white-space: nowrap;
+  line-height: 24px;
+  margin-top: -1px;
+  text-align: left;
+  font-family: Proxima Nova;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  color: rgba(255, 255, 255, 1);
+}
+.Bienvenido_a_ICAV_Health_Solut_gj_Class {
+  left: 2px;
+  top: 25px;
+  position: absolute;
+  overflow: visible;
+  width: 277px;
+  white-space: nowrap;
+  line-height: 24px;
+  margin-top: -4px;
+  text-align: left;
+  font-family: Proxima Nova;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 1);
+  letter-spacing: 0.5px;
+}
+.LogoutButton_Class {
+  position: absolute;
+  width: 185px;
+  height: 44px;
+  left: 1370px;
+  top: 18px;
+  overflow: visible;
+}
+.Button_BG_gl_Class {
+  fill: rgba(52, 51, 70, 1);
+}
+.Button_BG_gl {
+  position: absolute;
+  overflow: visible;
+  width: 185px;
+  height: 44px;
+  left: 0px;
+  top: 0px;
+}
+.CERRAR_SESIN_Class {
+  left: 34.339px;
+  top: 15px;
+  position: absolute;
+  overflow: visible;
+  width: 115px;
+  white-space: nowrap;
+  line-height: 24px;
+  margin-top: -5.5px;
+  text-align: center;
+  font-family: Proxima Nova;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 1);
+  letter-spacing: 1px;
+}
+.TopBarLogged_Class {
+  position: absolute;
+  width: 1600px;
+  height: 80px;
+  left: 0px;
+  top: 0px;
+  overflow: visible;
+}
+.BGTopBar_Class {
+  fill: rgba(255, 255, 255, 1);
+}
+.BGTopBar {
+  position: absolute;
+  overflow: visible;
+  width: 1600px;
+  height: 80px;
+  left: 0px;
+  top: 0px;
+}
+.MENU_gp_Class {
+  position: absolute;
+  width: 697px;
+  height: 49px;
+  left: 276px;
+  top: 31px;
+  overflow: visible;
+  padding: 0px;
+}
+.CUENTA_DE_USUARIO_gq_Class {
+  left: 523px;
+  top: 0px;
+  position: absolute;
+  overflow: visible;
+  width: 175px;
+  white-space: nowrap;
+  line-height: 24px;
+  margin-top: -4.5px;
+  text-align: left;
+  font-family: Proxima Nova;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  color: rgba(89, 98, 118, 1);
+  letter-spacing: 1px;
+}
+.VACUNAS_Class {
+  left: 391px;
+  top: 0px;
+  position: absolute;
+  overflow: visible;
+  width: 80px;
+  white-space: nowrap;
+  line-height: 24px;
+  margin-top: -4.5px;
+  text-align: left;
+  font-family: Proxima Nova;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  color: rgba(89, 98, 118, 1);
+  letter-spacing: 1px;
+}
+.CONTAGIOS_Class {
+  left: 241px;
+  top: 0px;
+  position: absolute;
+  overflow: visible;
+  width: 98px;
+  white-space: nowrap;
+  line-height: 24px;
+  margin-top: -4.5px;
+  text-align: left;
+  font-family: Proxima Nova;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  color: rgba(89, 98, 118, 1);
+  letter-spacing: 1px;
+}
+.Group_54_Class {
+  position: absolute;
+  width: 89px;
+  height: 49px;
+  left: 99px;
+  top: 0px;
+  overflow: visible;
+}
+.Line_gu_Class {
+  fill: rgba(62, 123, 151, 1);
+}
+.Line_gu {
+  overflow: visible;
+  position: absolute;
+  width: 89px;
+  height: 4px;
+  left: 0px;
+  top: 45px;
+  transform: matrix(1, 0, 0, 1, 0, 0);
+}
+.AFILIADOS_Class {
+  left: 1px;
+  top: 0px;
+  position: absolute;
+  overflow: visible;
+  width: 88px;
+  white-space: nowrap;
+  line-height: 24px;
+  margin-top: -4.5px;
+  text-align: left;
+  font-family: Proxima Nova;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  color: rgba(62, 123, 151, 1);
+  letter-spacing: 1px;
+}
+.HOME_Class {
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  overflow: visible;
+  width: 49px;
+  white-space: nowrap;
+  line-height: 24px;
+  margin-top: -4.5px;
+  text-align: left;
+  font-family: Proxima Nova;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  color: rgba(89, 98, 118, 1);
+  letter-spacing: 1px;
+}
+.UserWelcomeMenu_Class {
+  position: absolute;
+  width: 233.717px;
+  height: 48px;
+  left: 1323.283px;
+  top: 16px;
+  overflow: visible;
+}
+.Bienvenido_Usuario_gy_Class {
+  left: 0px;
+  top: 13px;
+  position: absolute;
+  overflow: visible;
+  width: 160px;
+  white-space: nowrap;
+  line-height: 24px;
+  margin-top: -3px;
+  text-align: right;
+  font-family: Proxima Nova;
+  font-style: normal;
+  font-weight: lighter;
+  font-size: 18px;
+  color: rgba(100, 109, 130, 1);
+  letter-spacing: 0.1px;
+}
+.Ellipse_9_gz_Class {
+  fill: rgba(52, 51, 70, 1);
+}
+.Ellipse_9_gz {
+  position: absolute;
+  overflow: visible;
+  width: 48px;
+  height: 48px;
+  left: 185.717px;
+  top: 0px;
+}
+.ICAV-LOGO_g_Class {
+  position: absolute;
+  width: 130px;
+  height: 46px;
+  left: 32px;
+  top: 19px;
+  overflow: visible;
 }
 .header_section {
   width: 100%;

@@ -1,17 +1,17 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import App from "./App.vue";
 import Instrucciones from "./components/Instrucciones.vue";
-import MostrarRegistros from "./components/MostarRegistros.vue";
 import SeleccionarUbicacion from "./components/SeleccionarUbicacion.vue";
-import CrearRegistro from "./components/CrearRegistro.vue";
+import CrearAfiliado from "./components/CrearAfiliado.vue";
 import CrearSeguimiento from "./components/CrearSeguimiento.vue";
-import FiltrarSexo from "./components/FiltrarSexo.vue";
 import FiltrarEstado from "./components/FiltrarEstado.vue";
 import ModificarSeguimiento from "./components/ModificarSeguimiento.vue";
 import IniciarSesion from "./components/IniciarSesion.vue";
 import CerrarSesion from "./components/CerrarSesion.vue";
 import CrearNuevoUsuario from "./components/CrearNuevoUsuario.vue";
 import EliminarCuenta from "./components/EliminarCuenta.vue";
+import Perfil from "./components/Perfil.vue";
+import MostrarAfiliados from "./components/MostrarAfiliados.vue";
 
 const routes = [
   {
@@ -43,17 +43,25 @@ const routes = [
     name: "CrearNuevoUsuario",
     component: CrearNuevoUsuario,
   },
-
+  {
+    path: "/Usuario/Perfil",
+    name: "Perfil",
+    component: Perfil,
+  },
+  {
+    path: "/Afiliados/MostrarAfiliados",
+    name: "MostrarAfiliados",
+    component: MostrarAfiliados,
+  },
+  {
+    path: "/Afiliados/CrearAfiliado",
+    name: "CrearAfiliado",
+    component: CrearAfiliado,
+  },
   {
     path: "/Usuario/EliminarCuenta",
     name: "EliminarCuenta",
     component: EliminarCuenta,
-  },
-
-  {
-    path: "/MostrarRegistros",
-    name: "MostrarRegistros",
-    component: MostrarRegistros,
   },
   {
     path: "/crear/ubicacion",
