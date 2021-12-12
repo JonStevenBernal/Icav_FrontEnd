@@ -25,10 +25,10 @@ import gql from "graphql-tag";
 import jwt_decode from "jwt-decode";
 
 export default {
-  name: "Peril",
+  name: "Perfil",
   data: function() {
     return {
-      userId: jwt_decode(localStorage.getItem("token_refresh")).user_id,
+      userId: jwt_decode(localStorage.getItem("tokenRefresh")).user_id,
       userDetailById: {
         username: "",
         name: "",
@@ -40,8 +40,8 @@ export default {
   apollo: {
     userDetailById: {
       query: gql`
-        query($userId: Int!) {
-          userDetailById(userId: $userId) {
+        query {
+          userDetailById {
             username
             name
             email

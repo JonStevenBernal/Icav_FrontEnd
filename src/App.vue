@@ -137,8 +137,8 @@ export default {
     completedLogIn: function(data) {
       localStorage.setItem("isAuth", true);
       localStorage.setItem("username", data.username);
-      localStorage.setItem("tokenAccess", data.tokenAccess);
-      localStorage.setItem("tokenRefresh", data.tokenRefresh);
+      localStorage.setItem("tokenAccess", data.token_access);
+      localStorage.setItem("tokenRefresh", data.token_refresh);
       alert("Autenticación exitosa");
       this.verifyAuth();
     },
