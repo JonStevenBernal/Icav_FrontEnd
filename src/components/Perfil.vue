@@ -54,6 +54,10 @@ methods: {
           alert("En la siguiente ventana podrá modificar el correo asociado a su cuenta");
           this.$router.push({ name: "ModificarCorreo" });
     },
+    procesarEliminarUsuario: function() {
+          alert("En la siguiente ventana podrá eliminar su cuenta");
+          this.$router.push({ name: "EliminarCuenta" });
+    },
     
   },
 

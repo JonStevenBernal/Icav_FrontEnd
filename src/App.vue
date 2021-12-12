@@ -189,16 +189,15 @@ export default {
     //   this.verificarAutenticacion();
     // },
 
-    // completedEliminarUsuario: function() {
-    //   alert("Usuario eliminado correctamente. Sesión cerrada");
-    //   this.$router.push({ name: "Instrucciones" });
-    //   this.verificarAutenticacion();
-    // },
+    completedEliminarUsuario: function() {
+      alert("Usuario eliminado correctamente. Sesión cerrada");
+      this.logOut();
+    },
   },
 
   created: function() {
     //función que se ejecuta al crear el componente
-    // this.verifyAuth();
+    this.verifyAuth();
   },
 };
 </script>

@@ -56,7 +56,7 @@ export default {
         })
 
         .then((result) => {
-          this.$emit("completedModificarCorreo", dataLogIn);
+          this.$emit("completedModificarCorreo");
         })
 
         .catch((error) => {

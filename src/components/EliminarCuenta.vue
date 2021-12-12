@@ -18,7 +18,48 @@
   </section>
 </template>
 
-<script></script>
+<script>
+import gql from "graphql-tag";
+
+export default {
+  name: "EliminarCuenta",
+  
+  data: function(){
+      return {
+          user: {
+              usuario: "",
+          }
+      }
+  },
+  methods: {
+    procesarEliminarCuenta: async function() {
+      await this.$apollo
+        .mutate({
+          mutation: gql`
+            mutation {
+              deleteUser
+            }
+          `,
+        })
+        .then((result) => {
+          localStorage.setItem('isAuth', false);
+          this.$emit("completedEliminarUsuario");
+        })
+        .catch((error) => {
+          alert("Error en la eliminación de cuenta");
+        });
+    },
+    
+    cancelar: function(){
+        alert("La cuenta no fue eliminada");
+        this.$router.push({ name: "Instrucciones" });
+    },
+  },
+  created: function() {
+    
+  },
+};
+</script>
 
 <style>
 .creacion {
