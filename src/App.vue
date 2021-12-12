@@ -113,10 +113,6 @@ export default {
       this.$router.push({ name: "MostrarAfiliados" });
     },
 
-    loadCrearRegistro: function() {
-      this.$router.push({ name: "CrearRegistro" });
-    },
-
     loadIniciarSesion: function() {
       this.$router.push({ name: "IniciarSesion" });
     },
@@ -131,18 +127,6 @@ export default {
 
     loadCrearNuevoUsuario: function() {
       this.$router.push({ name: "CrearNuevoUsuario" });
-    },
-
-    loadFiltrarEstado: function() {
-      this.$router.push({ name: "FiltrarEstado" });
-    },
-
-    loadModificarSeguimiento: function() {
-      this.$router.push({ name: "ModificarSeguimiento" });
-    },
-
-    loadCrearSeguimiento: function() {
-      this.$router.push({ name: "CrearSeguimiento" });
     },
 
     completedSignUp: function(data) {
@@ -170,6 +154,9 @@ export default {
     },
     loadCrearAfiliado: function() {
       this.$router.push({ name: "CrearAfiliado" });
+    },
+    loadBuscarAfiliado: function() {
+      this.$router.push({ name: "BuscarAfiliado" });
     },
 
     // completedModificarSeguimiento: function() {

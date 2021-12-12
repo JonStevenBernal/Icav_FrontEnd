@@ -2,6 +2,7 @@
   <section class="creacion">
     <section class="creacion_container">
       <img src="../assets/icons8-virus-pur.svg" alt="logo coronactual" />
+      <p>hola</p>
       <p>
         !Bienvenido <span>{{ userDetailById.name }}</span>
       </p>
@@ -25,7 +26,6 @@ import jwt_decode from "jwt-decode";
 
 export default {
   name: "Peril",
-
   data: function() {
     return {
       userId: jwt_decode(localStorage.getItem("token_refresh")).user_id,

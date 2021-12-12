@@ -12,6 +12,7 @@ import CrearNuevoUsuario from "./components/CrearNuevoUsuario.vue";
 import EliminarCuenta from "./components/EliminarCuenta.vue";
 import Perfil from "./components/Perfil.vue";
 import MostrarAfiliados from "./components/MostrarAfiliados.vue";
+import BuscarAfiliado from "./components/BuscarAfiliado.vue";
 
 const routes = [
   {
@@ -57,6 +58,11 @@ const routes = [
     path: "/Afiliados/CrearAfiliado",
     name: "CrearAfiliado",
     component: CrearAfiliado,
+  },
+  {
+    path: "/Afiliados/BuscarAfiliado",
+    name: "BuscarAfiliado",
+    component: BuscarAfiliado,
   },
   {
     path: "/Usuario/EliminarCuenta",
