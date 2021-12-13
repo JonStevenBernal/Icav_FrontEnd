@@ -26,13 +26,17 @@
           <tbody class="tabla_table-body">
             <!-- sección FILAS -->
 
-            <tr class="table_body-values">
+            <tr
+              class="table_body-values"
+              v-for="vacunas in vacunasByIdPersona"
+              :key="vacunas.idPersona"
+            >
               <!--Fila 1, datos registro -->
-              <td>{{ vacunasByIdPersona.idPersona }}</td>
-              <td>{{ vacunasByIdPersona.fabricante }}</td>
-              <td>{{ vacunasByIdPersona.lote }}</td>
-              <td>{{ vacunasByIdPersona.dosis }}</td>
-              <td>{{ vacunasByIdPersona.fechaAplicacion }}</td>
+              <td>{{ vacunas.idPersona }}</td>
+              <td>{{ vacunas.fabricante }}</td>
+              <td>{{ vacunas.lote }}</td>
+              <td>{{ vacunas.dosis }}</td>
+              <td>{{ vacunas.fechaAplicacion }}</td>
             </tr>
           </tbody>
         </table>
@@ -47,7 +51,7 @@ export default {
   name: "BuscarAfiliado",
   data: function() {
     return {
-      idPersona: 2222,
+      idPersona: 12345,
       vacunasByIdPersona: {
         idPersona: 0,
         fabricante: "",
