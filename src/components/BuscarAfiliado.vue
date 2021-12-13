@@ -6,7 +6,7 @@
         <p>Aqui podras buscar un afiliado de acuerdo con su cédula</p>
       </div>
 
-      <form class="creacion_container-form" v-on:submit.prevent="processSearch">
+      <form class="creacion_container-form" v-on:submit="processSearch">
         <input
           class="form_creacion-input"
           type="number"
@@ -89,7 +89,7 @@ export default {
     };
   },
 
-  methods: {
+/*   methods: {
     processSearch: async function() {
       await this.$apollo
         .query({
@@ -120,14 +120,45 @@ export default {
         })
 
         .catch((error) => {
-          alert("ERROR 401: Credenciales Incorrectas.");
+          alert("Error en la búsqueda");
         });
     },
+  }, */
+
+  methods: {
+    processSearch: function(){
+      this.apollo.query({query: afiliadoByIdentificacion});
+    }
   },
-  created: function() {
-    this.$apollo.queries.afiliadoByIdentificacion.refetch();
-    
+
+  apollo:{
+    afiliadoByIdentificacion: {
+      query: gql`
+        query Query($identificacion: Int!) {
+          afiliadoByIdentificacion(identificacion: $identificacion) {
+                  identificacion
+                  nombres
+                  apellidos
+                  edad
+                  medidaEdad
+                  sexo
+                  correo
+                  ciudad
+                  direccion
+          }
+        }
+      `,
+      variables() {
+        return {
+          identificacion: this.identificacion,
+        };
+            
+      }
+    }
   },
+
+
+
 };
 </script>
 
