@@ -4,8 +4,10 @@
       <img src="../assets/icons8-virus-pur.svg" alt="logo coronactual" />
       <h2>Crear un Registro</h2>
       <p>
-        Para crear una Vacuna por favor ingrese los siguientes datos
+        Para crear una Vacuna por favor ingrese los siguientes datos <br>
+        <i> Recuerde que está creando un nuevo contagio para el afiliado con id: {{ this.createVacuna.idPersona }} </i> 
       </p>
+      
       <form
         class="creacion_container-form"
         v-on:submit.prevent="procesarCrearVacuna"
@@ -15,7 +17,7 @@
           class="form_creacion-input"
           type="number"
           placeholder="CC"
-          v-model="createVacuna.identificacion"
+          v-model="createVacuna.idPersona"
         /> -->
 
         <label>Selecciona el Fabricante de la Vacuna</label>
@@ -103,12 +105,25 @@ export default {
 
         .then((result) => {
           alert("Vacuna Registrada exitosamente");
+          this.$router.push({ name: "Instrucciones" });
         })
 
         .catch((error) => {
           alert("Hubo un problema al Registrar la Vacuna");
         });
     },
+
+    obtenerID: function() {
+      this.createVacuna.idPersona = parseInt(localStorage.getItem("identificacion"));    
+      console.log("final");
+      console.log(this.createVacuna.idPersona);
+    },
+
   },
+  
+  created: function() {
+    this.obtenerID();
+  },
+
 };
 </script>
