@@ -133,7 +133,6 @@ export default {
 
   created: function() {
     this.$apollo.queries.todosAfiliados.refetch();
-
     //   this.$apollo.queries.accountByUsername.refetch();
   },
 };

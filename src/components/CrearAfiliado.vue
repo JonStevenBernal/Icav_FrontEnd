@@ -6,131 +6,142 @@
       <p>
         Para crear registro por favor ingrese los siguientes datos
       </p>
-      <!-- <form
+      <form
         class="creacion_container-form"
-        v-on:submit.prevent="procesarCrearRegistro"
+        v-on:submit.prevent="procesarCrearAfiliado"
       >
-        <label for="crearsegumiento"
-          >Selecciona el municipio en el departamento de Atlántico</label
-        >
-        <select
-          class="form_creacion-input"
-          v-model="registro.codigo_divipola_municipio_fk"
-        >
-          <option
-            v-for="ubicacion in ubicaciones"
-            :key="ubicacion.codigoDivipolaMunicipio"
-            :value="ubicacion.codigoDivipolaMunicipio"
-            >{{ ubicacion.nombre_municipio }}</option
-          >
-        </select>
-
-        <label>Selecciona Fecha de Notificacion</label>
-        <input
-          class="form_creacion-input"
-          type="date"
-          placeholder="DD/MM/AAAA"
-          v-model="registro.fecha_notificacion"
-        />
-
-        <label>Fecha de reporte</label>
-        <input
-          class="form_creacion-input"
-          type="date"
-          placeholder="DD/MM/AAAA"
-          v-model="registro.fecha_reporte"
-        />
-
-        <label>Fecha inicio de síntomas</label>
-        <input
-          class="form_creacion-input"
-          type="date"
-          placeholder="DD/MM/AAAA"
-          v-model="registro.fecha_sintomas"
-        />
-
-        <label>Fecha de diagnóstico del laboratorio</label>
-        <input
-          class="form_creacion-input"
-          type="date"
-          placeholder="DD/MM/AAAA"
-          v-model="registro.fecha_diagnostico_lab"
-        />
-
-        <label>Edad</label>
+        <label>Ingreasa tu numero de identificacion</label>
         <input
           class="form_creacion-input"
           type="number"
-          placeholder="Ingrese edad"
-          v-model="registro.edad"
+          placeholder="CC"
+          v-model="createAfiliado.identificacion"
+        />
+
+        <label>Ingreasa Nombres</label>
+        <input
+          class="form_creacion-input"
+          type="text"
+          placeholder="Tus Nombres"
+          v-model="createAfiliado.nombres"
+        />
+
+        <label>Ingreasa Apellidos</label>
+        <input
+          class="form_creacion-input"
+          type="text"
+          placeholder="Tu Apellidos"
+          v-model="createAfiliado.apellidos"
+        />
+
+        <label>Ingreasa la edad</label>
+        <input
+          class="form_creacion-input"
+          type="number"
+          placeholder="Edad"
+          v-model="createAfiliado.edad"
         />
 
         <label>Unidad de medida</label>
-        <select
-          class="form_creacion-input"
-          v-model="registro.unidad_de_medida_edad"
-        >
-          <option :key="3" :value="3">Dias</option>
-          <option :key="2" :value="2">Meses</option>
-          <option :key="1" :value="1">Años</option>
+        <select class="form_creacion-input" v-model="createAfiliado.medidaEdad">
+          <option value="Dias">Dias</option>
+          <option value="Meses">Meses</option>
+          <option value="Años">Años</option>
         </select>
 
         <label for="sexo">Sexo</label>
-
-        <select class="form_creacion-input" v-model="registro.sexo">
-          <option select disabled></option>
+        <select class="form_creacion-input" v-model="createAfiliado.sexo">
           <option value="F">Femenino</option>
           <option value="M">Masculino</option>
         </select>
 
-        <label>Nombre grupo étnico</label>
+        <label>Correo Electronico</label>
+        <input
+          class="form_creacion-input"
+          type="email"
+          placeholder="Correo@mail.com"
+          v-model="createAfiliado.correo"
+        />
+
+        <label>Ciudad</label>
+        <input
+          class="form_creacion-input"
+          type="text"
+          placeholder="Ciudad"
+          v-model="createAfiliado.ciudad"
+        />
+
+        <label>Direccion</label>
         <input
           class="form_creacion-input"
           type="text"
           placeholder="Ingrese el nombre del grupo étnico"
-          v-model="registro.grupo_etnico"
+          v-model="createAfiliado.direccion"
         />
-
-        <label>Pertenencia étnica</label>
-        <select
-          class="form_creacion-input"
-          v-model="registro.pertenencia_etnica"
-        >
-          <option select disabled></option>
-          <option :key="1" :value="1">Indigena</option>
-          <option :key="2" :value="2">ROM</option>
-          <option :key="3" :value="3">Raizal</option>
-          <option :key="4" :value="4">Palenquero</option>
-          <option :key="5" :value="5">Negro</option>
-          <option :key="6" :value="6">Otro</option>
-        </select>
-
-        <label for="frecup">Fecha de recuperación</label>
-        <input
-          class="form_creacion-input"
-          type="date"
-          placeholder="DD/MM/AAAA"
-          v-model="registro.fecha_recuperacion"
-        />
-
-        <label>Tipo de recuperación</label>
-        <select
-          class="form_creacion-input"
-          v-model="registro.tipo_recuperacion"
-        >
-          <option value="Tiempo">Tiempo</option>
-          <option value="PCR">PCR</option>
-          <option value="Fallecido">Fallecido</option>
-          <option value="No especificado">No Especificado</option>
-        </select>
-        <button type="submit">Crear Registro</button>
-      </form> -->
-      <p>Hola</p>
+        <button type="submit">Crear Afiliado</button>
+      </form>
     </section>
   </section>
 </template>
 
-<script></script>
+<script>
+import gql from "graphql-tag";
+
+export default {
+  name: "CrearAfiliado",
+
+  data: function() {
+    return {
+      createAfiliado: {
+        identificacion: 0,
+        nombres: "",
+        apellidos: "",
+        edad: 0,
+        medidaEdad: "",
+        sexo: "",
+        correo: "",
+        ciudad: "",
+        direccion: "",
+      },
+    };
+  },
+
+  methods: {
+    procesarCrearAfiliado: async function() {
+      await this.$apollo
+        .mutate({
+          mutation: gql`
+            mutation($afiliado: AfiliadoInput!) {
+              createAfiliado(afiliado: $afiliado) {
+                identificacion
+                nombres
+                apellidos
+                edad
+                medidaEdad
+                sexo
+                correo
+                ciudad
+                direccion
+              }
+            }
+          `,
+
+          variables: {
+            afiliado: this.createAfiliado,
+          },
+        })
+
+        .then((result) => {
+          alert("Afiliado Registrado exitosamente");
+        })
+
+        .catch((error) => {
+          alert("Hubo un problema al Registrar el Afiliado");
+        });
+    },
+  },
+};
+</script>
 
 <style>
 .creacion {
