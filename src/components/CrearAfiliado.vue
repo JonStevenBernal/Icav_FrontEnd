@@ -1,7 +1,7 @@
 <template>
   <section class="creacion">
     <section class="creacion_container">
-      <img src="../assets/icons8-virus-pur.svg" alt="logo coronactual" />
+      <img src="../assets/only-shield.png" alt="logo coronactual" />
       <h2>Crear un Registro</h2>
       <p>
         Para crear registro por favor ingrese los siguientes datos

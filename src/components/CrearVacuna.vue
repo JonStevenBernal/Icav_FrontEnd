@@ -1,13 +1,16 @@
 <template>
   <section class="creacion">
     <section class="creacion_container">
-      <img src="../assets/icons8-virus-pur.svg" alt="logo coronactual" />
+      <img src="../assets/only-shield.png" alt="logo Icav" />
       <h2>Crear un Registro</h2>
       <p>
-        Para crear una Vacuna por favor ingrese los siguientes datos <br>
-        <i> Recuerde que está creando un nuevo contagio para el afiliado con id: {{ this.createVacuna.idPersona }} </i> 
+        Para crear una Vacuna por favor ingrese los siguientes datos <br />
+        <i>
+          Recuerde que está creando un nuevo contagio para el afiliado con id:
+          {{ this.createVacuna.idPersona }}
+        </i>
       </p>
-      
+
       <form
         class="creacion_container-form"
         v-on:submit.prevent="procesarCrearVacuna"
@@ -114,16 +117,16 @@ export default {
     },
 
     obtenerID: function() {
-      this.createVacuna.idPersona = parseInt(localStorage.getItem("identificacion"));    
+      this.createVacuna.idPersona = parseInt(
+        localStorage.getItem("identificacion")
+      );
       console.log("final");
       console.log(this.createVacuna.idPersona);
     },
-
   },
-  
+
   created: function() {
     this.obtenerID();
   },
-
 };
 </script>

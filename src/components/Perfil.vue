@@ -2,7 +2,7 @@
   <section class="creacion">
     <section class="creacion_container">
       <div class="creacion_container-logo">
-        <img src="../assets/logoIcav.png" alt="logo Icav" />
+        <img src="../assets/only-shield.png" alt="logo Icav" />
       </div>
       <div class="creacion_container-info">
         <h2>Perfil</h2>
