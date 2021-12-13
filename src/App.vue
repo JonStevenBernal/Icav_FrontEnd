@@ -57,7 +57,7 @@
         v-on:completedSignUp="completedSignUp"
         v-on:completedLogIn="completedLogIn"
         v-on:logOut="logOut"
-        v-on:completedModificarSeguimiento="completedModificarSeguimiento"
+        v-on:completedModificarCorreo="completedModificarCorreo"
         v-on:completedCrearSeguimiento="completedCrearSeguimiento"
         v-on:completedCrearNuevoUsuario="completedCrearNuevoUsuario"
         v-on:completedCerrarSesion="completedCerrarSesion"
@@ -139,8 +139,8 @@ export default {
     completedLogIn: function(data) {
       localStorage.setItem("isAuth", true);
       localStorage.setItem("username", data.username);
-      localStorage.setItem("token_access", data.token_access);
-      localStorage.setItem("token_refresh", data.token_refresh);
+      localStorage.setItem("tokenAccess", data.token_access);
+      localStorage.setItem("tokenRefresh", data.token_refresh);
       alert("Autenticación exitosa");
       this.verifyAuth();
     },
@@ -161,11 +161,10 @@ export default {
       this.$router.push({ name: "BuscarAfiliado" });
     },
 
-    // completedModificarSeguimiento: function() {
-    //   localStorage.removeItem("id");
-    //   alert("Modificación de seguimiento exitosa");
-    //   this.$router.push({ name: "Instrucciones" });
-    // },
+    completedModificarCorreo: function() {
+      alert("Modificación de correo exitosa");
+      this.$router.push({ name: "Instrucciones" });
+    },
 
     // completedCrearSeguimiento: function() {
     //   alert("Creación de seguimiento exitosa");
@@ -192,11 +191,10 @@ export default {
     //   this.verificarAutenticacion();
     // },
 
-    // completedEliminarUsuario: function() {
-    //   alert("Usuario eliminado correctamente. Sesión cerrada");
-    //   this.$router.push({ name: "Instrucciones" });
-    //   this.verificarAutenticacion();
-    // },
+    completedEliminarUsuario: function() {
+      alert("Usuario eliminado correctamente. Sesión cerrada");
+      this.logOut();
+    },
   },
 
   created: function() {

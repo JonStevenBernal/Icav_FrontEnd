@@ -2,34 +2,32 @@
   <section class="creacion">
     <section class="creacion_container">
       <img src="../assets/icons8-virus-pur.svg" alt="logo coronactual" />
-      <p>hola</p>
+      <h2>Perfil</h2>
       <p>
-        !Bienvenido <span>{{ userDetailById.name }}</span>
+        <center>!Bienvenido {{ userDetailById.name }}!</center>
       </p>
-      <div class="details">
-        <h3>Información</h3>
-        <h2>
-          Nombre de usuario:
-          <span>{{ userDetailById.username }}</span>
-        </h2>
-        <h2>
-          Correo electrónico:
-          <span>{{ userDetailById.email }}</span>
-        </h2>
-      </div>
+      
+        <p>Su información de usuario es:</p>
+        
+        <h3><p>Nombre de usuario: {{ userDetailById.username }}</p></h3>
+        <h3><p>Correo electrónico: {{ userDetailById.email }} </p></h3>
+
+      <p><button v-on:click="procesarModificarUsuario()"> Modificar correo </button></p>
+      <p><button v-on:click="procesarEliminarUsuario()"> Eliminar Usuario </button></p>
+      
     </section>
   </section>
 </template>
+
 <script>
 import gql from "graphql-tag";
-import jwt_decode from "jwt-decode";
 
 export default {
-  name: "Peril",
+  name: "Perfil",
   data: function() {
     return {
-      userId: jwt_decode(localStorage.getItem("token_refresh")).user_id,
       userDetailById: {
+        id: 0,
         username: "",
         name: "",
         email: "",
@@ -40,21 +38,29 @@ export default {
   apollo: {
     userDetailById: {
       query: gql`
-        query($userId: Int!) {
-          userDetailById(userId: $userId) {
+        query {
+          userDetailById {
             username
             name
             email
           }
         }
-      `,
-      variables() {
-        return {
-          userId: this.userId,
-        };
-      },
+      `
     },
   },
+
+methods: {
+    procesarModificarUsuario: function() {
+          alert("En la siguiente ventana podrá modificar el correo asociado a su cuenta");
+          this.$router.push({ name: "ModificarCorreo" });
+    },
+    procesarEliminarUsuario: function() {
+          alert("En la siguiente ventana podrá eliminar su cuenta");
+          this.$router.push({ name: "EliminarCuenta" });
+    },
+    
+  },
+
 };
 </script>
 <style></style>

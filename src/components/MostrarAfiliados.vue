@@ -76,14 +76,7 @@ export default {
 
   data: function() {
     return {
-      //   username: localStorage.getItem("token_access") || "none",
       todosAfiliados: [],
-
-      //   accountByUsername: {
-      //     balance: "",
-
-      //     lastChange: "",
-      //   },
     };
   },
 
