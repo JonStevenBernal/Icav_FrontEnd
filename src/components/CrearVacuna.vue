@@ -4,81 +4,59 @@
       <img src="../assets/icons8-virus-pur.svg" alt="logo coronactual" />
       <h2>Crear un Registro</h2>
       <p>
-        Para crear registro por favor ingrese los siguientes datos
+        Para crear una Vacuna por favor ingrese los siguientes datos
       </p>
       <form
         class="creacion_container-form"
-        v-on:submit.prevent="procesarCrearAfiliado"
+        v-on:submit.prevent="procesarCrearVacuna"
       >
-        <label>Ingreasa tu numero de identificacion</label>
+        <!-- <label>Ingreasa tu numero de identificacion</label>
         <input
           class="form_creacion-input"
           type="number"
           placeholder="CC"
-          v-model="createAfiliado.identificacion"
-        />
+          v-model="createVacuna.identificacion"
+        /> -->
 
-        <label>Ingreasa Nombres</label>
-        <input
-          class="form_creacion-input"
-          type="text"
-          placeholder="Tus Nombres"
-          v-model="createAfiliado.nombres"
-        />
+        <label>Selecciona el Fabricante de la Vacuna</label>
+        <select class="form_creacion-input" v-model="createVacuna.fabricante">
+          <option value="Vacuna BioNTech, Pfizer"
+            >Vacuna BioNTech, Pfizer</option
+          >
+          <option value="Vacuna CoronaVac">Vacuna CoronaVac</option>
+          <option value="Janssen de Johnson And Johnson"
+            >Janssen de Johnson And Johnson</option
+          >
+          <option value="Vacuna Moderna">Vacuna Moderna</option>
+          <option value="Vacuna Oxford, AstraZeneca"
+            >Vacuna Oxford, AstraZeneca</option
+          >
+        </select>
 
-        <label>Ingreasa Apellidos</label>
-        <input
-          class="form_creacion-input"
-          type="text"
-          placeholder="Tu Apellidos"
-          v-model="createAfiliado.apellidos"
-        />
-
-        <label>Ingreasa la edad</label>
+        <label>Ingreasa el lote de la vacuna</label>
         <input
           class="form_creacion-input"
           type="number"
-          placeholder="Edad"
-          v-model="createAfiliado.edad"
+          placeholder="Lote"
+          v-model="createVacuna.lote"
         />
 
-        <label>Unidad de medida</label>
-        <select class="form_creacion-input" v-model="createAfiliado.medidaEdad">
-          <option value="Dias">Dias</option>
-          <option value="Meses">Meses</option>
-          <option value="Años">Años</option>
-        </select>
-
-        <label for="sexo">Sexo</label>
-        <select class="form_creacion-input" v-model="createAfiliado.sexo">
-          <option value="F">Femenino</option>
-          <option value="M">Masculino</option>
-        </select>
-
-        <label>Correo Electronico</label>
+        <label>Ingreasa el numero de dosis</label>
         <input
           class="form_creacion-input"
-          type="email"
-          placeholder="Correo@mail.com"
-          v-model="createAfiliado.correo"
+          type="number"
+          placeholder="Numero de vacuna"
+          v-model="createAfiliado.dosis"
         />
 
-        <label>Ciudad</label>
+        <label>Selecciona Fecha la echa de aplicacion</label>
         <input
           class="form_creacion-input"
-          type="text"
-          placeholder="Ciudad"
-          v-model="createAfiliado.ciudad"
+          type="date"
+          placeholder="DD/MM/AAAA"
+          v-model="createAfiliado.fechaAplicacion"
         />
-
-        <label>Direccion</label>
-        <input
-          class="form_creacion-input"
-          type="text"
-          placeholder="Ingrese el nombre del grupo étnico"
-          v-model="createAfiliado.direccion"
-        />
-        <button type="submit">Crear Afiliado</button>
+        <button type="submit">Crear Vacunacion</button>
       </form>
     </section>
   </section>
@@ -88,55 +66,47 @@
 import gql from "graphql-tag";
 
 export default {
-  name: "CrearAfiliado",
+  name: "CrearVacuna",
 
   data: function() {
     return {
-      createAfiliado: {
-        identificacion: 0,
-        nombres: "",
-        apellidos: "",
-        edad: 0,
-        medidaEdad: "",
-        sexo: "",
-        correo: "",
-        ciudad: "",
-        direccion: "",
+      createVacuna: {
+        idPersona: 0,
+        fabricante: "",
+        lote: 0,
+        dosis: 0,
+        fechaAplicacion: "",
       },
     };
   },
 
   methods: {
-    procesarCrearAfiliado: async function() {
+    procesarCrearVacuna: async function() {
       await this.$apollo
         .mutate({
           mutation: gql`
-            mutation($afiliado: AfiliadoInput!) {
-              createAfiliado(afiliado: $afiliado) {
-                identificacion
-                nombres
-                apellidos
-                edad
-                medidaEdad
-                sexo
-                correo
-                ciudad
-                direccion
+            mutation($vacuna: VacunaInput!) {
+              createVacuna(vacuna: $vacuna) {
+                idPersona
+                fabricante
+                lote
+                dosis
+                fechaAplicacion
               }
             }
           `,
 
           variables: {
-            afiliado: this.createAfiliado,
+            vacuna: this.createVacuna,
           },
         })
 
         .then((result) => {
-          alert("Afiliado Registrado exitosamente");
+          alert("Vacuna Registrada exitosamente");
         })
 
         .catch((error) => {
-          alert("Hubo un problema al Registrar el Afiliado");
+          alert("Hubo un problema al Registrar la Vacuna");
         });
     },
   },

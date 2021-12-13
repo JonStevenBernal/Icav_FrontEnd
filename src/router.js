@@ -21,6 +21,8 @@ import MostrarAfiliados from "./components/MostrarAfiliados.vue";
 import BuscarAfiliado from "./components/BuscarAfiliado.vue";
 import Vacunas from "./components/Vacunas.vue";
 import Contagios from "./components/Contagios.vue";
+import CrearContagio from "./components/CrearContagio.vue";
+import CrearVacuna from "./components/CrearVacuna.vue";
 
 const routes = [
   {
@@ -91,6 +93,16 @@ const routes = [
     path: "/Afiliado/Contagios",
     name: "Contagios",
     component: Contagios,
+  },
+  {
+    path: "/Afiliado/CrearVacuna",
+    name: "CrearVacuna",
+    component: CrearVacuna,
+  },
+  {
+    path: "/Afiliado/CrearContagio",
+    name: "CrearContagio",
+    component: CrearContagio,
   },
   // {
   //   path: "/crear/ubicacion",
