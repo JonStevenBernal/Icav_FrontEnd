@@ -51,7 +51,7 @@ export default {
   name: "BuscarAfiliado",
   data: function() {
     return {
-      idPersona: 12345,
+      idPersona: 0,
       vacunasByIdPersona: {
         idPersona: 0,
         fabricante: "",
@@ -100,6 +100,13 @@ export default {
     processSearch: function() {
       this.apollo.query({ query: vacunasByIdPersona });
     },
+
+    obtenerID: function() {
+      this.idPersona = parseInt(localStorage.getItem("identificacion"));
+      
+      console.log(this.idPersona);
+    },
+
   },
   //   created: function() {
   //     this.$apollo.queries.afiliadoByIdentificacion.refetch();
@@ -126,5 +133,10 @@ export default {
       },
     },
   },
+  
+  created: function() {
+    this.obtenerID();
+  },
+
 };
 </script>

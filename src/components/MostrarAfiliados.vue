@@ -56,15 +56,13 @@
               <td>{{ afiliados.direccion }}</td>
 
               <td>
-                <button v-on:click="vacunasAfiliado(afiliados.identificacion)">
-                  Vacunas del Afiliado: #{{ afiliados.identificacion }}
+                <button v-on:click="llamarVacunasAfiliado(afiliados.identificacion)">
+                  Ver vacunas Afiliado id:{{ afiliados.identificacion }}
                 </button>
               </td>
               <td>
-                <button
-                  v-on:click="contagiosAfiliado(afiliados.identificacion)"
-                >
-                  Contagios del Afiliadv-once:{{ afiliados.identificacion }}
+                <button v-on:click="llamarContagiosAfiliado(afiliados.identificacion)">
+                  Ver contagios Afiliado id:{{ afiliados.identificacion }}
                 </button>
               </td>
             </tr>
@@ -88,12 +86,20 @@ export default {
   },
 
   methods: {
-    vacunasAfiliado: function() {
-      alert("En la siguiente ventana podrá ver las vacunas del Afiliado");
+    llamarVacunasAfiliado: function(identificacion) {
+      alert(`En la siguiente ventana podrá ver las vacunas del Afiliado con id ${identificacion}`);
+      localStorage.removeItem("identificacion");
+      localStorage.setItem("identificacion", identificacion);
       this.$router.push({ name: "Vacunas" });
     },
 
-    contagiosAfiliado: function() {},
+    llamarContagiosAfiliado: function(identificacion) {
+      alert(`En la siguiente ventana podrá ver los contagios asociados al Afiliado con id ${identificacion}`);
+      localStorage.removeItem("identificacion");
+      localStorage.setItem("identificacion", identificacion);
+      this.$router.push({ name: "Contagios" });
+    },
+
   },
 
   apollo: {
