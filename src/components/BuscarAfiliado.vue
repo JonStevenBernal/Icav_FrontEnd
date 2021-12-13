@@ -8,7 +8,7 @@
 
       <form class="creacion_container-form" v-on:submit="processSearch">
         <input
-          class="form_creacion-input"
+          class="form_input"
           type="number"
           placeholder="Cedula"
           v-model="identificacion"
@@ -106,7 +106,7 @@ export default {
     };
   },
 
-  /*   methods: {
+  methods: {
     processSearch: async function() {
       await this.$apollo
         .query({
@@ -138,7 +138,7 @@ export default {
           alert("Error en la búsqueda");
         });
     },
-  }, */
+  },
 
   methods: {
     processSearch: function() {
@@ -163,10 +163,6 @@ export default {
       this.$router.push({ name: "Contagios" });
     },
   },
-  //   created: function() {
-  //     this.$apollo.queries.afiliadoByIdentificacion.refetch();
-  //     //   this.$apollo.queries.accountByUsername.refetch();
-  //   },
 
   apollo: {
     afiliadoByIdentificacion: {
@@ -216,5 +212,16 @@ export default {
   margin-bottom: 10px;
   box-shadow: 0 3px 3px -2px rgb(0 0 0 / 10%), 0 3px 4px 0 rgb(0 0 0 / 14%),
     0 1px 8px 0 rgb(0 0 0 / 12%);
+}
+.form_input {
+  display: block;
+  padding: 15px 10px;
+  margin-bottom: 10px;
+  width: 40%;
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  color: var(--black-letter);
+  background-color: transparent;
+  margin: 0 auto;
 }
 </style>

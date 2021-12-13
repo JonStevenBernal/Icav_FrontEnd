@@ -12,7 +12,10 @@
 
       <div>
         <center>
-          <button v-on:click="crearVacuna(this.idPersona)">
+          <button
+            class="allregister_container-button"
+            v-on:click="crearVacuna(this.idPersona)"
+          >
             Crear una nueva vacuna para el afiliado id:{{ this.idPersona }}
           </button>
         </center>
@@ -156,3 +159,17 @@ export default {
   },
 };
 </script>
+<style>
+.allregister_container-button {
+  background: #218dc9;
+  height: 40px;
+  border: none;
+  color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  box-shadow: 0 3px 3px -2px rgb(0 0 0 / 10%), 0 3px 4px 0 rgb(0 0 0 / 14%),
+    0 1px 8px 0 rgb(0 0 0 / 12%);
+  padding: 5px;
+}
+</style>
