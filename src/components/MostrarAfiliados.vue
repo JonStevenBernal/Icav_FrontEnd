@@ -93,7 +93,10 @@ export default {
       this.$router.push({ name: "Vacunas" });
     },
 
-    contagiosAfiliado: function() {},
+    contagiosAfiliado: function() {
+        alert("En la siguiente ventana podrá ver los contagios de los Afiliados");
+      this.$router.push({ name: "Contagios" });
+    },
   },
 
   apollo: {

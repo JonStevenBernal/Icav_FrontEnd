@@ -20,6 +20,7 @@ import Perfil from "./components/Perfil.vue";
 import MostrarAfiliados from "./components/MostrarAfiliados.vue";
 import BuscarAfiliado from "./components/BuscarAfiliado.vue";
 import Vacunas from "./components/Vacunas.vue";
+import Contagios from "./components/Contagios.vue";
 
 const routes = [
   {
@@ -85,6 +86,11 @@ const routes = [
     path: "/Afiliado/Vacunas",
     name: "Vacunas",
     component: Vacunas,
+  },
+  {
+    path: "/Afiliado/Contagios",
+    name: "Contagios",
+    component: Contagios,
   },
   // {
   //   path: "/crear/ubicacion",

@@ -2,14 +2,14 @@
   <section class="allregister">
     <section class="allregister_container">
       <div class="allregister_container-info">
-        <h2>Vacunas del Afiliado</h2>
+        <h2>Contagios del Afiliado</h2>
         <p>
           Aqui podras ver las vacunas de un afiliado de acuerdo con la consula #
           <!-- {{ afiliados.identificacion }} -->
         </p>
       </div>
 
-      <h2>Vacunas</h2>
+      <h2>Contagios</h2>
 
       <div class="allregister_container-tabla">
         <table class="container-tabla_table">
@@ -17,10 +17,12 @@
             <tr>
               <!--sección COLUMNAS -->
               <th>Identificacion</th>
-              <th>Fabricante</th>
-              <th>lote</th>
-              <th>Numero de dosis</th>
-              <th>Fecha de aplicacion</th>
+              <th>Fecha Diagnóstico</th>
+              <th>Estado Enfermedad</th>
+              <th>Ubicación caso</th>
+              <th>Estado recuperación</th>
+              <th>Fecha de recuperación</th>
+              <th>Fecha de muerte</th>
             </tr>
           </thead>
           <tbody class="tabla_table-body">
@@ -28,15 +30,17 @@
 
             <tr
               class="table_body-values"
-              v-for="vacunas in vacunasByIdPersona"
-              :key="vacunas.idPersona"
+              v-for="contagios in contagiosByIdPersona"
+              :key="contagios.idPersona"
             >
               <!--Fila 1, datos registro -->
-              <td>{{ vacunas.idPersona }}</td>
-              <td>{{ vacunas.fabricante }}</td>
-              <td>{{ vacunas.lote }}</td>
-              <td>{{ vacunas.dosis }}</td>
-              <td>{{ vacunas.fechaAplicacion }}</td>
+              <td>{{ contagios.idPersona }}</td>
+              <td>{{ contagios.fechaDiagnostico }}</td>
+              <td>{{ contagios.estadoEnfermedad }}</td>
+              <td>{{ contagios.ubicacionCaso }}</td>
+              <td>{{ contagios.estadoRecuperacion }}</td>
+              <td>{{ contagios.fechaRecuperacion }}</td>
+              <td>{{ contagios.fechcontagios }}</td>
             </tr>
           </tbody>
         </table>
@@ -48,16 +52,18 @@
 <script>
 import gql from "graphql-tag";
 export default {
-  name: "Vacunas",
+  name: "BuscarAfiliado",
   data: function() {
     return {
-      idPersona: 12345,
-      vacunasByIdPersona: {
+      idPersona: 2222,
+      contagiosByIdPersona: {
         idPersona: 0,
-        fabricante: "",
-        lote: 0,
-        dosis: 0,
-        fechaAplicacion: "",
+        fechaDiagnostico: "",
+        estadoEnfermedad: "",
+        ubicacionCaso: "",
+        estadoRecuperacion: "",
+        fechaRecuperacion: "",
+        fechaMuerte: "",
       },
     };
   },
@@ -98,7 +104,7 @@ export default {
 
   methods: {
     processSearch: function() {
-      this.apollo.query({ query: vacunasByIdPersona });
+      this.apollo.query({ query: contagiosByIdPersona });
     },
   },
   //   created: function() {
@@ -107,15 +113,17 @@ export default {
   //   },
 
   apollo: {
-    vacunasByIdPersona: {
+    contagiosByIdPersona: {
       query: gql`
         query Query($idPersona: Int!) {
-          vacunasByIdPersona(idPersona: $idPersona) {
+          contagiosByIdPersona(idPersona: $idPersona) {
             idPersona
-            fabricante
-            lote
-            dosis
-            fechaAplicacion
+            fechaDiagnostico
+            estadoEnfermedad
+            ubicacionCaso
+            estadoRecuperacion
+            fechaRecuperacion
+            fechaMuerte
           }
         }
       `,
