@@ -21,8 +21,8 @@ import MostrarAfiliados from "./components/MostrarAfiliados.vue";
 import BuscarAfiliado from "./components/BuscarAfiliado.vue";
 import Vacunas from "./components/Vacunas.vue";
 import Contagios from "./components/Contagios.vue";
-import CrearVacuna from "./components/CrearVacuna.vue";
 import CrearContagio from "./components/CrearContagio.vue";
+import CrearVacuna from "./components/CrearVacuna.vue";
 
 const routes = [
   {

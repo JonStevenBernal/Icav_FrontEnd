@@ -10,75 +10,74 @@
         class="creacion_container-form"
         v-on:submit.prevent="procesarCrearContagio"
       >
-        <label>Ingreasa tu numero de identificacion</label>
+        <!-- <label>Ingreasa tu numero de identificacion</label>
         <input
           class="form_creacion-input"
           type="number"
           placeholder="CC"
           v-model="createContagio.idPersona"
-        />
+        /> -->
 
         <label>Selecciona Fecha de Diagnostico</label>
         <input
           class="form_creacion-input"
           type="date"
           placeholder="DD/MM/AAAA"
-          v-model="create.fecha"
+          v-model="createContagio.fechaDiagnostico"
         />
 
-        <label>Ingreasa Apellidos</label>
-        <input
+        <label>Selecciona el estado de enfermedad del Afiliado</label>
+        <select
           class="form_creacion-input"
-          type="text"
-          placeholder="Tu Apellidos"
-          v-model="createAfiliado.apellidos"
-        />
-
-        <label>Ingreasa la edad</label>
-        <input
-          class="form_creacion-input"
-          type="number"
-          placeholder="Edad"
-          v-model="createAfiliado.edad"
-        />
-
-        <label>Unidad de medida</label>
-        <select class="form_creacion-input" v-model="createAfiliado.medidaEdad">
-          <option value="Dias">Dias</option>
-          <option value="Meses">Meses</option>
-          <option value="Años">Años</option>
+          v-model="createContagio.estadoEnfermedad"
+        >
+          <option value="leve">Leve</option>
+          <option value="moderado">Moderado</option>
+          <option value="grave">Grave</option>
+          <option value="fallecido">Fallecido</option>
         </select>
 
-        <label for="sexo">Sexo</label>
-        <select class="form_creacion-input" v-model="createAfiliado.sexo">
-          <option value="F">Femenino</option>
-          <option value="M">Masculino</option>
+        <label>Selecciona ubicacion del caso del Afiliado</label>
+        <select
+          class="form_creacion-input"
+          v-model="createContagio.ubicacionCaso"
+        >
+          <option value="casa">Casa</option>
+          <option value="hospital">Hospital</option>
+          <option value="uci">UCI</option>
+          <option value="fallecido">Fallecido</option>
+          <option value="NA">N/A</option>
         </select>
 
-        <label>Correo Electronico</label>
+        <label>Selecciona estado de Recuperación</label>
+        <!-- select dropdown Estado Recuperado-->
+        <select
+          class="form_creacion-input"
+          v-model="createContagio.estadoRecuperacion"
+        >
+          <option value="activo">Activo</option>
+          <option value="recuperado">Recuperado</option>
+          <option value="fallecido">Fallecido</option>
+          <option value="NA">N/A</option>
+        </select>
+
+        <label>Selecciona Fecha de Recuperacion del Afiliado</label>
         <input
           class="form_creacion-input"
-          type="email"
-          placeholder="Correo@mail.com"
-          v-model="createAfiliado.correo"
+          type="date"
+          placeholder="DD/MM/AAAA"
+          v-model="createContagio.fechaRecuperacion"
         />
 
-        <label>Ciudad</label>
+        <label>Selecciona Fecha de muerte del Afiliado</label>
         <input
           class="form_creacion-input"
-          type="text"
-          placeholder="Ciudad"
-          v-model="createAfiliado.ciudad"
+          type="date"
+          placeholder="DD/MM/AAAA"
+          v-model="createContagio.fechaMuerte"
         />
 
-        <label>Direccion</label>
-        <input
-          class="form_creacion-input"
-          type="text"
-          placeholder="Ingrese el nombre del grupo étnico"
-          v-model="createAfiliado.direccion"
-        />
-        <button type="submit">Crear Afiliado</button>
+        <button type="submit">Crear Contagio</button>
       </form>
     </section>
   </section>
@@ -93,50 +92,46 @@ export default {
   data: function() {
     return {
       createAfiliado: {
-        identificacion: 0,
-        nombres: "",
-        apellidos: "",
-        edad: 0,
-        medidaEdad: "",
-        sexo: "",
-        correo: "",
-        ciudad: "",
-        direccion: "",
+        idPersona: 0,
+        fechaDiagnostico: "",
+        estadoEnfermedad: "",
+        ubicacionCaso: "",
+        estadoRecuperacion: "",
+        fechaRecuperacion: "",
+        fechaMuerte: "",
       },
     };
   },
 
   methods: {
-    procesarCrearAfiliado: async function() {
+    procesarCrearContagio: async function() {
       await this.$apollo
         .mutate({
           mutation: gql`
-            mutation($afiliado: AfiliadoInput!) {
-              createAfiliado(afiliado: $afiliado) {
-                identificacion
-                nombres
-                apellidos
-                edad
-                medidaEdad
-                sexo
-                correo
-                ciudad
-                direccion
+            mutation($contagio: ContagioInput!) {
+              createContagio(contagio: $contagio) {
+                idPersona
+                fechaDiagnostico
+                estadoEnfermedad
+                ubicacionCaso
+                estadoRecuperacion
+                fechaRecuperacion
+                fechaMuerte
               }
             }
           `,
 
           variables: {
-            afiliado: this.createAfiliado,
+            contagio: this.createContagio,
           },
         })
 
         .then((result) => {
-          alert("Afiliado Registrado exitosamente");
+          alert("Contagio Registrado exitosamente");
         })
 
         .catch((error) => {
-          alert("Hubo un problema al Registrar el Afiliado");
+          alert("Hubo un problema al Registrar el Contagio");
         });
     },
   },
