@@ -88,7 +88,7 @@
 import gql from "graphql-tag";
 
 export default {
-  name: "CrearAfiliado",
+  name: "CrearContagio",
 
   data: function() {
     return {

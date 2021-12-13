@@ -4,9 +4,17 @@
       <div class="allregister_container-info">
         <h2>Contagios del Afiliado</h2>
         <p>
-          Aqui podras ver las vacunas de un afiliado de acuerdo con la consula #
-          <!-- {{ afiliados.identificacion }} -->
+          Aqui podras ver los contagios del afiliado con identificacion {{ this.idPersona }}
+          
         </p>
+      </div>
+
+      <div>
+        <center>
+        <button v-on:click="crearContagio(this.idPersona)">
+          Crear un nuevo contagio para el afiliado id:{{ this.idPersona }}
+        </button>
+        </center>
       </div>
 
       <h2>Contagios</h2>
@@ -52,10 +60,10 @@
 <script>
 import gql from "graphql-tag";
 export default {
-  name: "BuscarAfiliado",
+  name: "Contagios",
   data: function() {
     return {
-      idPersona: 2222,
+      idPersona: 0,
       contagiosByIdPersona: {
         idPersona: 0,
         fechaDiagnostico: "",
@@ -106,6 +114,19 @@ export default {
     processSearch: function() {
       this.apollo.query({ query: contagiosByIdPersona });
     },
+
+    crearContagio: function(identificacion) {
+      alert(`En la siguiente ventana podrá crear un nuevo contagio para el afiliado con id ${identificacion}`);
+      localStorage.removeItem("identificacion");
+      localStorage.setItem("identificacion", identificacion);
+      this.$router.push({ name: "CrearContagio" });
+    },
+
+    obtenerID: function() {
+      this.idPersona = parseInt(localStorage.getItem("identificacion"));    
+      console.log(this.idPersona);
+    },
+
   },
   //   created: function() {
   //     this.$apollo.queries.afiliadoByIdentificacion.refetch();
@@ -133,6 +154,10 @@ export default {
         };
       },
     },
+  },
+
+  created: function() {
+    this.obtenerID();
   },
 };
 </script>

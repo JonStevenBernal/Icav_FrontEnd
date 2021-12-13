@@ -4,9 +4,17 @@
       <div class="allregister_container-info">
         <h2>Vacunas del Afiliado</h2>
         <p>
-          Aqui podras ver las vacunas de un afiliado de acuerdo con la consula #
+          Aqui podras ver las vacunas aplicadas al afiliado con identificacion {{ this.idPersona }}
           <!-- {{ afiliados.identificacion }} -->
         </p>
+      </div>
+
+      <div>
+        <center>
+        <button v-on:click="crearVacuna(this.idPersona)">
+          Crear una nueva vacuna para el afiliado id:{{ this.idPersona }}
+        </button>
+        </center>
       </div>
 
       <h2>Vacunas</h2>
@@ -99,6 +107,13 @@ export default {
   methods: {
     processSearch: function() {
       this.apollo.query({ query: vacunasByIdPersona });
+    },
+
+    crearVacuna: function(identificacion) {
+      alert(`En la siguiente ventana podrá crear una nueva vacuna para el afiliado con id ${identificacion}`);
+      localStorage.removeItem("identificacion");
+      localStorage.setItem("identificacion", identificacion);
+      this.$router.push({ name: "CrearVacuna" });
     },
 
     obtenerID: function() {
