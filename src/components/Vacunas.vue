@@ -4,16 +4,17 @@
       <div class="allregister_container-info">
         <h2>Vacunas del Afiliado</h2>
         <p>
-          Aqui podras ver las vacunas aplicadas al afiliado con identificacion {{ this.idPersona }}
+          Aqui podras ver las vacunas aplicadas al afiliado con identificacion
+          {{ this.idPersona }}
           <!-- {{ afiliados.identificacion }} -->
         </p>
       </div>
 
       <div>
         <center>
-        <button v-on:click="crearVacuna(this.idPersona)">
-          Crear una nueva vacuna para el afiliado id:{{ this.idPersona }}
-        </button>
+          <button v-on:click="crearVacuna(this.idPersona)">
+            Crear una nueva vacuna para el afiliado id:{{ this.idPersona }}
+          </button>
         </center>
       </div>
 
@@ -110,7 +111,9 @@ export default {
     },
 
     crearVacuna: function(identificacion) {
-      alert(`En la siguiente ventana podrá crear una nueva vacuna para el afiliado con id ${identificacion}`);
+      alert(
+        `En la siguiente ventana podrá crear una nueva vacuna para el afiliado con id ${identificacion}`
+      );
       localStorage.removeItem("identificacion");
       localStorage.setItem("identificacion", identificacion);
       this.$router.push({ name: "CrearVacuna" });
@@ -118,10 +121,9 @@ export default {
 
     obtenerID: function() {
       this.idPersona = parseInt(localStorage.getItem("identificacion"));
-      
+
       console.log(this.idPersona);
     },
-
   },
   //   created: function() {
   //     this.$apollo.queries.afiliadoByIdentificacion.refetch();
@@ -148,10 +150,9 @@ export default {
       },
     },
   },
-  
+
   created: function() {
     this.obtenerID();
   },
-
 };
 </script>

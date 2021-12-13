@@ -33,7 +33,8 @@
               <th>Correo</th>
               <th>Ciudad</th>
               <th>Direccion</th>
-              <!-- <th>Modificar Afiliado</th> -->
+              <th>Ver las Vacunas</th>
+              <th>Ver los Contagios</th>
             </tr>
           </thead>
           <tbody class="tabla_table-body">
@@ -50,14 +51,32 @@
               <td>{{ afiliadoByIdentificacion.correo }}</td>
               <td>{{ afiliadoByIdentificacion.ciudad }}</td>
               <td>{{ afiliadoByIdentificacion.direccion }}</td>
-
-              <!-- <td> -->
-              <!-- <button
-                  v-on:click="llamar(afiliadoByIdentificacion.identificacion)"
+              <td>
+                <button
+                  v-on:click="
+                    llamarVacunasAfiliado(
+                      afiliadoByIdentificacion.identificacion
+                    )
+                  "
                 >
-                  Modificar id:{{ afiliadoByIdentificacion.identificacion }}
-                </button> -->
-              <!-- </td> -->
+                  Ver vacunas Afiliado id:{{
+                    afiliadoByIdentificacion.identificacion
+                  }}
+                </button>
+              </td>
+              <td>
+                <button
+                  v-on:click="
+                    llamarContagiosAfiliado(
+                      afiliadoByIdentificacion.identificacion
+                    )
+                  "
+                >
+                  Ver contagios Afiliado id:{{
+                    afiliadoByIdentificacion.identificacion
+                  }}
+                </button>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -124,6 +143,24 @@ export default {
   methods: {
     processSearch: function() {
       this.apollo.query({ query: afiliadoByIdentificacion });
+    },
+
+    llamarVacunasAfiliado: function(identificacion) {
+      alert(
+        `En la siguiente ventana podrá ver las vacunas del Afiliado con id ${identificacion}`
+      );
+      localStorage.removeItem("identificacion");
+      localStorage.setItem("identificacion", identificacion);
+      this.$router.push({ name: "Vacunas" });
+    },
+
+    llamarContagiosAfiliado: function(identificacion) {
+      alert(
+        `En la siguiente ventana podrá ver los contagios asociados al Afiliado con id ${identificacion}`
+      );
+      localStorage.removeItem("identificacion");
+      localStorage.setItem("identificacion", identificacion);
+      this.$router.push({ name: "Contagios" });
     },
   },
   //   created: function() {

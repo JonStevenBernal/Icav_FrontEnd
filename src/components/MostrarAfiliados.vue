@@ -29,7 +29,8 @@
               <th>Correo</th>
               <th>Ciudad</th>
               <th>Direccion</th>
-              <th>Modificar Afiliado</th>
+              <th>Ver Vacunas</th>
+              <th>Ver Contagios</th>
             </tr>
           </thead>
           <tbody class="tabla_table-body">
@@ -238,15 +239,16 @@ export default {
 .table_body-values:nth-child(odd) {
   background-color: #f2f2f2;
 }
-.table_body-values td:last-of-type button {
+.table_body-values td:nth-last-child(n + 1) button {
   background: #218dc9;
-  width: 90px;
-  height: 30px;
+  width: 140px;
+  height: 50px;
   border: none;
   color: #ffffff;
   border-radius: 5px;
   cursor: pointer;
   box-shadow: 0 3px 3px -2px rgb(0 0 0 / 10%), 0 3px 4px 0 rgb(0 0 0 / 14%),
     0 1px 8px 0 rgb(0 0 0 / 12%);
+  margin: 4px;
 }
 </style>
