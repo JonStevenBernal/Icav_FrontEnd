@@ -18,7 +18,9 @@
       </form>
 
       <h2>Lista de afiliados</h2>
-        <div class="allregister_container-tabla">
+      <p>{{ afiliadoByIdentificacion }}</p>
+
+      <div class="allregister_container-tabla">
         <table class="container-tabla_table">
           <thead class="tabla_table-heading">
             <tr>
@@ -32,16 +34,13 @@
               <th>Correo</th>
               <th>Ciudad</th>
               <th>Direccion</th>
-              <th>Modificar Afiliado</th>
+              <!-- <th>Modificar Afiliado</th> -->
             </tr>
           </thead>
           <tbody class="tabla_table-body">
             <!-- sección FILAS -->
 
-            <tr
-              class="table_body-values"
-              
-            >
+            <tr class="table_body-values">
               <!--Fila 1, datos registro -->
               <td>{{ afiliadoByIdentificacion.identificacion }}</td>
               <td>{{ afiliadoByIdentificacion.nombres }}</td>
@@ -54,9 +53,11 @@
               <td>{{ afiliadoByIdentificacion.direccion }}</td>
 
               <td>
-                <button v-on:click="llamar(afiliadoByIdentificacion.identificacion)">
+                <!-- <button
+                  v-on:click="llamar(afiliadoByIdentificacion.identificacion)"
+                >
                   Modificar id:{{ afiliadoByIdentificacion.identificacion }}
-                </button>
+                </button> -->
               </td>
             </tr>
           </tbody>
@@ -68,10 +69,8 @@
 
 <script>
 import gql from "graphql-tag";
-
 export default {
   name: "BuscarAfiliado",
-
   data: function() {
     return {
       identificacion: 0,
@@ -85,7 +84,7 @@ export default {
         correo: "",
         ciudad: "",
         direccion: "",
-      } ,
+      },
     };
   },
 
@@ -94,7 +93,7 @@ export default {
       await this.$apollo
         .query({
           query: gql`
-            query($identificacion: Int!) {
+            query AfiliadoByIdentificacion($identificacion: Int!) {
               afiliadoByIdentificacion(identificacion: $identificacion) {
                 identificacion
                 nombres
@@ -108,26 +107,24 @@ export default {
               }
             }
           `,
-
           variables: {
             identificacion: this.identificacion,
+            afiliadoByIdentificacion: this.identificacion,
           },
         })
-
         .then((result) => {
-          alert("Búsqueda exitosa")
-          console.log(this.afiliadoByIdentificacion)        
+          alert("Búsqueda exitosa");
+          console.log(this.afiliadoByIdentificacion);
         })
-
         .catch((error) => {
           alert("ERROR 401: Credenciales Incorrectas.");
         });
     },
   },
-  created: function() {
-    this.$apollo.queries.afiliadoByIdentificacion.refetch();
-    
-  },
+  //   created: function() {
+  //     this.$apollo.queries.afiliadoByIdentificacion.refetch();
+  //     //   this.$apollo.queries.accountByUsername.refetch();
+  //   },
 };
 </script>
 

@@ -32,12 +32,12 @@ export default {
   name: "Perfil",
   data: function() {
     return {
-      userDetailById: {
-        id: 0,
-        username: "",
-        name: "",
-        email: "",
-      },
+      //   userDetailById: {
+      //     id: 0,
+      //     username: "",
+      //     name: "",
+      //     email: "",
+      //   },
     };
   },
 
