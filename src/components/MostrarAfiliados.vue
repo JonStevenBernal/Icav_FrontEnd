@@ -56,8 +56,15 @@
               <td>{{ afiliados.direccion }}</td>
 
               <td>
-                <button v-on:click="llamar(afiliados.identificacion)">
-                  Modificar id:{{ afiliados.identificacion }}
+                <button v-on:click="vacunasAfiliado(afiliados.identificacion)">
+                  Vacunas del Afiliado: #{{ afiliados.identificacion }}
+                </button>
+              </td>
+              <td>
+                <button
+                  v-on:click="contagiosAfiliado(afiliados.identificacion)"
+                >
+                  Contagios del Afiliadv-once:{{ afiliados.identificacion }}
                 </button>
               </td>
             </tr>
@@ -78,6 +85,15 @@ export default {
     return {
       //   todosAfiliado: [],
     };
+  },
+
+  methods: {
+    vacunasAfiliado: function() {
+      alert("En la siguiente ventana podrá ver las vacunas del Afiliado");
+      this.$router.push({ name: "Vacunas" });
+    },
+
+    contagiosAfiliado: function() {},
   },
 
   apollo: {

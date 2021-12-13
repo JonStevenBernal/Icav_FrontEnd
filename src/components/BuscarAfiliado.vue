@@ -6,7 +6,7 @@
         <p>Aqui podras buscar un afiliado de acuerdo con su cédula</p>
       </div>
 
-      <form class="creacion_container-form" v-on:submit.prevent="processSearch">
+      <form class="creacion_container-form" v-on:submit="processSearch">
         <input
           class="form_creacion-input"
           type="number"
@@ -14,11 +14,10 @@
           v-model="identificacion"
         />
 
-        <button type="submit">Buscar</button>
+        <!-- <button type="submit">Buscar</button> -->
       </form>
 
       <h2>Lista de afiliados</h2>
-      <p>{{ afiliadoByIdentificacion }}</p>
 
       <div class="allregister_container-tabla">
         <table class="container-tabla_table">
@@ -52,13 +51,13 @@
               <td>{{ afiliadoByIdentificacion.ciudad }}</td>
               <td>{{ afiliadoByIdentificacion.direccion }}</td>
 
-              <td>
-                <!-- <button
+              <!-- <td> -->
+              <!-- <button
                   v-on:click="llamar(afiliadoByIdentificacion.identificacion)"
                 >
                   Modificar id:{{ afiliadoByIdentificacion.identificacion }}
                 </button> -->
-              </td>
+              <!-- </td> -->
             </tr>
           </tbody>
         </table>
@@ -88,7 +87,7 @@ export default {
     };
   },
 
-  methods: {
+  /*   methods: {
     processSearch: async function() {
       await this.$apollo
         .query({
@@ -117,14 +116,45 @@ export default {
           console.log(this.afiliadoByIdentificacion);
         })
         .catch((error) => {
-          alert("ERROR 401: Credenciales Incorrectas.");
+          alert("Error en la búsqueda");
         });
+    },
+  }, */
+
+  methods: {
+    processSearch: function() {
+      this.apollo.query({ query: afiliadoByIdentificacion });
     },
   },
   //   created: function() {
   //     this.$apollo.queries.afiliadoByIdentificacion.refetch();
   //     //   this.$apollo.queries.accountByUsername.refetch();
   //   },
+
+  apollo: {
+    afiliadoByIdentificacion: {
+      query: gql`
+        query Query($identificacion: Int!) {
+          afiliadoByIdentificacion(identificacion: $identificacion) {
+            identificacion
+            nombres
+            apellidos
+            edad
+            medidaEdad
+            sexo
+            correo
+            ciudad
+            direccion
+          }
+        }
+      `,
+      variables() {
+        return {
+          identificacion: this.identificacion,
+        };
+      },
+    },
+  },
 };
 </script>
 

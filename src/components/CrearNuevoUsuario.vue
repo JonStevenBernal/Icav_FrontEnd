@@ -129,7 +129,7 @@ export default {
   display: block;
   padding: 15px 10px;
   margin-bottom: 10px;
-  width: 100%;
+  width: 80%;
   border: 1px solid var(--primary-color);
   border-radius: 5px;
   color: var(--black-letter);
@@ -143,102 +143,4 @@ export default {
   border-radius: 5px;
   margin-top: 15px;
 }
-
-/* .CrearRegistro {
-  height: 100%;
-  width: 100%;
-
-  justify-content: center;
-  align-items: center;
-}
-
-.titulo {
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-align: center;
-  text-transform: uppercase;
-  color: #707070;
-}
-.parrafo {
-  text-align: center;
-  text-align: center;
-  font-size: 1.3rem;
-}
-
-.titulo h1 {
-  color: rgb(18, 50, 119);
-  font-size: 60px;
-}
-
-.titulo p {
-  text-align: center;
-  font-size: 20px;
-}
-
-.formulario1 {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
-  width: 100%;
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 1rem;
-}
-.field {
-  display: flex;
-  flex-direction: column;
-  width: 12rem;
-  margin: 0.5rem 0;
-}
-.field label {
-  font-size: 0.9rem;
-  margin-botton: 0.2rem;
-  color: #696969;
-}
-.field input {
-  font-size: 1.1rem;
-
-  height: 2.2rem;
-  padding-left: 0.5rem;
-
-  border: 2px solid #696969;
-  border-radius: 5px;
-}
-.field select {
-  font-size: 1.1rem;
-
-  width: 12rem;
-  height: 2.6rem;
-  padding-left: 0.5rem;
-
-  border: 2px solid #696969;
-  border-radius: 5px;
-}
-.submit {
-  display: flex;
-  justify-content: center;
-
-  width: 30%;
-  margin-top: 1rem;
-}
-.submit button {
-  font-size: 1.1rem;
-
-  padding: 0.5rem 0.5rem;
-
-  cursor: pointer;
-
-  border: 1px solid #696969;
-  border-radius: 2px;
-  background-color: lightcyan;
-}
-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  width: 80%;
-  margin: 0 auto;
-} */
 </style>

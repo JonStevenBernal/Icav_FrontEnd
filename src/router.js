@@ -1,6 +1,10 @@
 import gql from "graphql-tag";
 import { createRouter, createWebHashHistory } from "vue-router";
-import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client/core'
+import {
+  ApolloClient,
+  createHttpLink,
+  InMemoryCache,
+} from "@apollo/client/core";
 import App from "./App.vue";
 import Instrucciones from "./components/Instrucciones.vue";
 // import SeleccionarUbicacion from "./components/SeleccionarUbicacion.vue";
@@ -15,6 +19,7 @@ import EliminarCuenta from "./components/EliminarCuenta.vue";
 import Perfil from "./components/Perfil.vue";
 import MostrarAfiliados from "./components/MostrarAfiliados.vue";
 import BuscarAfiliado from "./components/BuscarAfiliado.vue";
+import Vacunas from "./components/Vacunas.vue";
 
 const routes = [
   {
@@ -75,6 +80,11 @@ const routes = [
     path: "/Usuario/ModificarCorreo",
     name: "ModificarCorreo",
     component: ModificarCorreo,
+  },
+  {
+    path: "/Afiliado/Vacunas",
+    name: "Vacunas",
+    component: Vacunas,
   },
   // {
   //   path: "/crear/ubicacion",
