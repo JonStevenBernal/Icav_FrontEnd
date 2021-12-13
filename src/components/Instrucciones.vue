@@ -2,15 +2,17 @@
   <section class="section_main">
     <div class="section_main-image"></div>
     <div class="section_main-home">
-      <h2>¡Bienvenido a Coronactual!</h2>
+      <h2>¡Bienvenido a ICAV!</h2>
       <p>
         En este sitio web está destinado para los funcionarios de la EPS UNEPS.
-        Como funcionario puede crear una cuenta, iniciar sesión, cerrar sesión y eliminar su cuenta.
+        Como funcionario puede crear una cuenta, iniciar sesión, cerrar sesión y
+        eliminar su cuenta.
         <br />
         <br />
-        Este aplicativo permite gestionar la información de los afiliados de la EPS. 
-        Así mismo, teniendo en cuenta el actual brote de enfermedad por coronavirus (COVID-19),
-        la aplicación permite llevar un registro tanto de los contagios como de las vacunas aplicadas de los afiliados.
+        Este aplicativo permite gestionar la información de los afiliados de la
+        EPS. Así mismo, teniendo en cuenta el actual brote de enfermedad por
+        coronavirus (COVID-19), la aplicación permite llevar un registro tanto
+        de los contagios como de las vacunas aplicadas de los afiliados.
         <br />
       </p>
       <p v-if="!isAuth">
@@ -36,7 +38,7 @@
   height: 20rem;
   margin: 0 auto;
   margin-bottom: 50px;
-  background-image: url("../assets/icons8-virus-pur.svg");
+  background-image: url("../assets/vertical.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

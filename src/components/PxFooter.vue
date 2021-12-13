@@ -23,10 +23,10 @@
       </ul>
       <div class="footer_logo">
         <figure class="footer_logo-figure">
-          <img src="../assets/icons8-virus.svg" alt="Logo Coronavirus" />
+          <img src="../assets/only-shield.png" alt="Logo Icav" />
         </figure>
         <div class="footer_logo-title">
-          <h3 class="">CoronActual <br />Te salva la vida</h3>
+          <h3 class="">Icav <br />Te salva la vida</h3>
         </div>
       </div>
     </div>

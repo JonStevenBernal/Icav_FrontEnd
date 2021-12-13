@@ -10,13 +10,13 @@
       <div class="header_section">
         <div class="header_section-item" v-on:click="loadInicio">
           <figure class="item_figure">
-            <img src="./assets/logoIcav.png" alt="logo Icav" />
+            <img src="./assets/horizontal.png" alt="logo Icav" />
           </figure>
-          <div class="item_title">
+          <!-- <div class="item_title">
             <h1 class="">Icav<br />EPS</h1>
             <div></div>
             <p>Estrategia de vacunación <br />COVID-19</p>
-          </div>
+          </div> -->
         </div>
         <figure class="header_section_buton" v-on:click="toggleShowNav">
           <img class="" src="./assets/icons8-menu_rounded.svg" alt="Menu" />
@@ -542,7 +542,7 @@ html {
   width: 6rem;
 }
 .item_figure img {
-  width: 50px;
+  width: 100px;
 }
 .item_title {
   display: flex;
@@ -665,6 +665,9 @@ html {
 }
 .footer_logo-figure {
   width: 70px;
+}
+.footer_logo-figure img {
+  width: 60px;
 }
 .footer_logo-title {
   display: var(--d-flex);

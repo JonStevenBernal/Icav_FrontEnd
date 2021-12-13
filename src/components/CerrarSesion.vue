@@ -48,8 +48,8 @@ export default {
   height: 20rem;
   margin: 0 auto;
   margin-bottom: 50px;
-  background-image: url("../assets/icons8-virus-pur.svg");
-  background-size: cover;
+  background-image: url("../assets/vertical.png");
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
