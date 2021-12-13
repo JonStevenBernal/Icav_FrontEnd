@@ -46,7 +46,7 @@
           class="form_creacion-input"
           type="number"
           placeholder="Numero de vacuna"
-          v-model="createAfiliado.dosis"
+          v-model="createVacuna.dosis"
         />
 
         <label>Selecciona Fecha la echa de aplicacion</label>
@@ -54,7 +54,7 @@
           class="form_creacion-input"
           type="date"
           placeholder="DD/MM/AAAA"
-          v-model="createAfiliado.fechaAplicacion"
+          v-model="createVacuna.fechaAplicacion"
         />
         <button type="submit">Crear Vacunacion</button>
       </form>

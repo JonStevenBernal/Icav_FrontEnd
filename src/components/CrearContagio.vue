@@ -91,7 +91,7 @@ export default {
 
   data: function() {
     return {
-      createAfiliado: {
+      createContagio: {
         idPersona: 0,
         fechaDiagnostico: "",
         estadoEnfermedad: "",
