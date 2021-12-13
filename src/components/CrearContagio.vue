@@ -4,8 +4,10 @@
       <img src="../assets/icons8-virus-pur.svg" alt="logo coronactual" />
       <h2>Creacion de Contagio del Afiliado</h2>
       <p>
-        Para crear un contagio por favor ingrese los siguientes datos
+        Para crear un contagio por favor ingrese los siguientes datos <br>
+        <i> Recuerde que está creando un nuevo contagio para el afiliado con id: {{ this.createContagio.idPersona }} </i> 
       </p>
+      
       <form
         class="creacion_container-form"
         v-on:submit.prevent="procesarCrearContagio"
@@ -128,12 +130,25 @@ export default {
 
         .then((result) => {
           alert("Contagio Registrado exitosamente");
+          this.$router.push({ name: "Instrucciones" });
         })
 
         .catch((error) => {
           alert("Hubo un problema al Registrar el Contagio");
         });
     },
+
+    obtenerID: function() {
+      this.createContagio.idPersona = parseInt(localStorage.getItem("identificacion"));    
+      console.log("final");
+      console.log(this.createContagio.idPersona);
+    },
+
+
+  },
+
+  created: function() {
+    this.obtenerID();
   },
 };
 </script>
