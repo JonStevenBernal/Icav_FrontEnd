@@ -9,7 +9,7 @@
           />
           <h2 class="">
             Universidad Nacional de Colombia <br />Proyecto Mision Tic:
-            Coronactual
+            ICAV - Infection Control and Vaccination
           </h2>
         </div>
       </div>
@@ -26,7 +26,7 @@
           <img src="../assets/only-shield.png" alt="Logo Icav" />
         </figure>
         <div class="footer_logo-title">
-          <h3 class="">Icav <br />Te salva la vida</h3>
+          <h3 class="">Icav <br />Infection Control and Vaccination</h3>
         </div>
       </div>
     </div>

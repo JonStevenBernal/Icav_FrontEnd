@@ -162,6 +162,7 @@ export default {
 <style>
 .allregister_container-button {
   background: #218dc9;
+  width: 90%;
   height: 40px;
   border: none;
   color: #ffffff;

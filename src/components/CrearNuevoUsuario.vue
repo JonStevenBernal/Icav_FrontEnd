@@ -1,7 +1,7 @@
 <template>
   <section class="creacion">
     <section class="creacion_container">
-      <img src="../assets/icons8-virus-pur.svg" alt="logo coronactual" />
+      <img src="../assets/only-shield.png" alt="logo Icav" />
       <h2>Crear una nueva cuenta de usuario</h2>
       <p>
         Para crear un nueva cuenta, por favor ingrese un nombre de usuario,

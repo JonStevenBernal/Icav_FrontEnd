@@ -4,16 +4,19 @@
       <div class="allregister_container-info">
         <h2>Contagios del Afiliado</h2>
         <p>
-          Aqui podras ver los contagios del afiliado con identificacion {{ this.idPersona }}
-          
+          Aqui podras ver los contagios del afiliado con identificacion
+          {{ this.idPersona }}
         </p>
       </div>
 
       <div>
         <center>
-        <button v-on:click="crearContagio(this.idPersona)">
-          Crear un nuevo contagio para el afiliado id:{{ this.idPersona }}
-        </button>
+          <button
+            class="allregister_container-button"
+            v-on:click="crearContagio(this.idPersona)"
+          >
+            Crear un nuevo contagio para el afiliado id:{{ this.idPersona }}
+          </button>
         </center>
       </div>
 
@@ -116,17 +119,18 @@ export default {
     },
 
     crearContagio: function(identificacion) {
-      alert(`En la siguiente ventana podrá crear un nuevo contagio para el afiliado con id ${identificacion}`);
+      alert(
+        `En la siguiente ventana podrá crear un nuevo contagio para el afiliado con id ${identificacion}`
+      );
       localStorage.removeItem("identificacion");
       localStorage.setItem("identificacion", identificacion);
       this.$router.push({ name: "CrearContagio" });
     },
 
     obtenerID: function() {
-      this.idPersona = parseInt(localStorage.getItem("identificacion"));    
+      this.idPersona = parseInt(localStorage.getItem("identificacion"));
       console.log(this.idPersona);
     },
-
   },
   //   created: function() {
   //     this.$apollo.queries.afiliadoByIdentificacion.refetch();

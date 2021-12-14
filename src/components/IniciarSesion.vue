@@ -1,9 +1,9 @@
 <template>
   <section class="creacion">
     <section class="creacion_container">
-      <img src="../assets/icons8-virus-pur.svg" alt="logo coronactual" />
+      <img src="../assets/only-shield.png" alt="logo coronactual" />
 
-      <h2>¡Bienvenido a Coronactual!</h2>
+      <h2>¡Bienvenido a Icav!</h2>
       <p>
         Por favor inicie sesión para acceder a los serivicios. <br />
         Si no tiene una cuenta puede crear una haciendo click en el botón
